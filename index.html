@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aura - Prototipo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@400&family=Lexend:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell" aria-live="polite">
+      <section class="screen is-active" data-screen="login" data-node-id="546:974" aria-labelledby="login-title">
+        <form class="card auth-card login-card" data-form="login" novalidate>
+          <h1 class="auth-title" id="login-title">Benvenuto!!</h1>
+
+          <div class="field-stack login-fields">
+            <label class="field">
+              <span class="sr-only">Email</span>
+              <input class="text-input" name="email" type="email" placeholder="Email" autocomplete="email" required>
+              <span class="field-error" data-error-for="email"></span>
+            </label>
+
+            <label class="field">
+              <span class="sr-only">Password</span>
+              <input class="text-input" name="password" type="password" placeholder="Password" autocomplete="current-password" required minlength="6">
+              <span class="field-error" data-error-for="password"></span>
+            </label>
+          </div>
+
+          <div class="auth-actions login-actions">
+            <button class="button button-primary" type="submit">Accedi</button>
+            <span class="login-spacer" aria-hidden="true"></span>
+            <button class="text-link" type="button" data-go-to="register">Registrati</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="screen screen-register" data-screen="register" data-node-id="555:443" aria-labelledby="register-title">
+        <form class="card auth-card register-card" data-form="register" novalidate>
+          <h1 class="auth-title" id="register-title">REGISTRATI</h1>
+
+          <div class="field-stack register-fields">
+            <label class="field">
+              <span class="sr-only">Nome</span>
+              <input class="text-input" name="name" type="text" placeholder="Nome" autocomplete="given-name" required>
+              <span class="field-error" data-error-for="name"></span>
+            </label>
+
+            <label class="field">
+              <span class="sr-only">Cognome</span>
+              <input class="text-input" name="surname" type="text" placeholder="Cognome" autocomplete="family-name" required>
+              <span class="field-error" data-error-for="surname"></span>
+            </label>
+
+            <label class="field">
+              <span class="sr-only">Email</span>
+              <input class="text-input" name="email" type="email" placeholder="Email" autocomplete="email" required>
+              <span class="field-error" data-error-for="email"></span>
+            </label>
+
+            <label class="field">
+              <span class="sr-only">Password</span>
+              <input class="text-input" name="password" type="password" placeholder="Password" autocomplete="new-password" required minlength="6">
+              <span class="field-error" data-error-for="password"></span>
+            </label>
+          </div>
+
+          <div class="auth-actions register-actions">
+            <button class="button button-primary" type="submit">Registrati</button>
+            <p class="auth-helper">Hai già un account?</p>
+            <button class="text-link" type="button" data-go-to="login">Accedi</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="screen" data-screen="onboarding-intro" data-node-id="555:530" aria-labelledby="intro-copy">
+        <div class="card info-card">
+          <p class="intro-copy" id="intro-copy">Adesso ti devo fare qualche domanda, non ci vorrà molto.</p>
+        </div>
+        <button class="button button-primary intro-button" type="button" data-go-to="question-1">Prosegui</button>
+      </section>
+
+      <section class="screen" data-screen="question-1" data-node-id="555:627" aria-labelledby="question-1-title">
+        <div class="card question-card">
+          <h2 class="question-title" id="question-1-title">Come ti rivolgi a un gruppo di persone?</h2>
+
+          <div class="scale-control" data-range-control>
+            <input class="scale-range" type="range" min="1" max="9" step="1" value="5" aria-label="Livello di sicurezza nel parlare a un gruppo" aria-valuetext="Neutrale">
+            <div class="scale-ticks" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+
+          <div class="scale-labels" aria-hidden="true">
+            <p>Sicuro<br>di sé</p>
+            <p>Panico<br>totale</p>
+          </div>
+
+          <div class="progress-dots" aria-label="Domanda 1 di 3">
+            <span class="progress-dot is-active"></span>
+            <span class="progress-dot"></span>
+            <span class="progress-dot"></span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

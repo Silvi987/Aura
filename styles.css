@@ -1,0 +1,468 @@
+:root {
+  --aura-yellow: #ffe45e;
+  --aura-pink: #f694c1;
+  --aura-blue: #acdcff;
+  --aura-violet: #e4a5ff;
+  --aura-text: #000000;
+  --aura-muted: #747474;
+  --aura-error: #9f235f;
+  --card-radius: 75px;
+  --font-title: "Advent Pro", sans-serif;
+  --font-body: "Lexend", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #f6f3f8;
+}
+
+body {
+  min-height: 100dvh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  color: var(--aura-text);
+  font-family: var(--font-body);
+  font-weight: 300;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+.app-shell {
+  width: min(700px, 100vw);
+  min-height: 100dvh;
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.screen {
+  --screen-height: 808px;
+  width: 100%;
+  min-height: max(100dvh, var(--screen-height));
+  position: relative;
+  display: none;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 3% 2%, rgba(172, 220, 255, 0.88) 0 19%, rgba(172, 220, 255, 0) 47%),
+    radial-gradient(circle at 3% 91%, rgba(246, 148, 193, 0.9) 0 21%, rgba(246, 148, 193, 0) 49%),
+    radial-gradient(circle at 100% 100%, rgba(255, 228, 94, 0.98) 0 18%, rgba(255, 228, 94, 0) 47%),
+    radial-gradient(circle at 86% 15%, rgba(228, 165, 255, 0.5) 0 20%, rgba(228, 165, 255, 0) 50%),
+    linear-gradient(135deg, #bfeeff 0%, #eacbe4 51%, #fff86d 100%);
+}
+
+.screen-register {
+  --screen-height: 968px;
+}
+
+.screen.is-active {
+  display: block;
+}
+
+.card {
+  width: min(450px, calc(100% - 56px));
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  overflow: clip;
+  border-radius: var(--card-radius);
+  background: #ffffff;
+}
+
+.auth-card {
+  height: 518px;
+}
+
+.register-card {
+  height: 705px;
+  top: calc(50% - 11.5px);
+}
+
+.auth-title {
+  position: absolute;
+  top: 32px;
+  left: 50%;
+  margin: 0;
+  transform: translateX(-50%);
+  font-family: var(--font-title);
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.field-stack {
+  width: calc(100% - 72px);
+  position: absolute;
+  left: 36px;
+  top: 121px;
+  display: flex;
+  flex-direction: column;
+  gap: 31px;
+}
+
+.field {
+  position: relative;
+  display: block;
+}
+
+.text-input {
+  width: 100%;
+  height: 68px;
+  padding: 0 32px;
+  border: 1px solid #000000;
+  border-radius: 35px;
+  outline: none;
+  background: #ffffff;
+  color: #111111;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1;
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.text-input::placeholder {
+  color: var(--aura-muted);
+  opacity: 1;
+}
+
+.text-input:focus {
+  border-color: #000000;
+  box-shadow: 0 0 0 4px rgba(255, 228, 94, 0.44);
+}
+
+.text-input.is-invalid {
+  border-color: var(--aura-error);
+  box-shadow: 0 0 0 3px rgba(246, 148, 193, 0.28);
+}
+
+.field-error {
+  min-height: 14px;
+  position: absolute;
+  left: 33px;
+  top: 73px;
+  color: var(--aura-error);
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.15;
+}
+
+.auth-actions {
+  width: 214px;
+  position: absolute;
+  left: 50%;
+  display: flex;
+  transform: translateX(-50%);
+  flex-direction: column;
+  align-items: center;
+  gap: 21px;
+  text-align: center;
+}
+
+.login-actions {
+  top: 334px;
+}
+
+.register-actions {
+  top: 532px;
+}
+
+.button {
+  width: 164px;
+  height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 35px;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
+  text-decoration: none;
+  transition: transform 150ms ease, filter 150ms ease, box-shadow 150ms ease;
+}
+
+.button-primary {
+  background: var(--aura-yellow);
+}
+
+.button:hover {
+  filter: saturate(1.04) brightness(1.01);
+  transform: translateY(-1px);
+}
+
+.button:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+.button:focus-visible,
+.text-link:focus-visible,
+.scale-range:focus-visible {
+  outline: 3px solid rgba(0, 0, 0, 0.72);
+  outline-offset: 4px;
+}
+
+.login-spacer {
+  width: 1px;
+  height: 16px;
+}
+
+.auth-helper {
+  width: max-content;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.text-link {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.info-card,
+.question-card {
+  height: 371px;
+}
+
+.intro-copy {
+  width: 252px;
+  position: absolute;
+  top: 141px;
+  left: 50%;
+  margin: 0;
+  transform: translateX(-50%);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.22;
+  text-align: left;
+}
+
+.intro-button {
+  position: absolute;
+  top: calc(50% + 142px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.intro-button:hover {
+  transform: translate(-50%, -1px);
+}
+
+.intro-button:active {
+  transform: translate(-50%, 1px) scale(0.99);
+}
+
+.question-title {
+  width: 300px;
+  position: absolute;
+  top: 53px;
+  left: 75px;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.scale-control {
+  width: 339px;
+  height: 56px;
+  position: absolute;
+  top: 155px;
+  left: 57px;
+}
+
+.scale-range {
+  width: 100%;
+  height: 56px;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  margin: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.scale-range::-webkit-slider-runnable-track {
+  height: 2px;
+  border: 0;
+  background: var(--aura-violet);
+}
+
+.scale-range::-moz-range-track {
+  height: 2px;
+  border: 0;
+  background: var(--aura-violet);
+}
+
+.scale-range::-webkit-slider-thumb {
+  width: 36px;
+  height: 36px;
+  margin-top: -17px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  border-radius: 999px;
+  background: var(--aura-yellow);
+  box-shadow: 0 0 0 5px rgba(255, 228, 94, 0.18);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.scale-range::-moz-range-thumb {
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--aura-yellow);
+  box-shadow: 0 0 0 5px rgba(255, 228, 94, 0.18);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.scale-range:active::-webkit-slider-thumb {
+  transform: scale(1.05);
+  box-shadow: 0 0 0 7px rgba(255, 228, 94, 0.24);
+}
+
+.scale-range:active::-moz-range-thumb {
+  transform: scale(1.05);
+  box-shadow: 0 0 0 7px rgba(255, 228, 94, 0.24);
+}
+
+.scale-ticks {
+  width: 100%;
+  position: absolute;
+  top: 14px;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.scale-ticks span {
+  width: 27px;
+  height: 27px;
+  border-radius: 999px;
+  background: var(--aura-violet);
+}
+
+.scale-labels {
+  width: 360px;
+  position: absolute;
+  top: 211px;
+  left: 50px;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.scale-labels p {
+  width: 88px;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.23;
+}
+
+.scale-labels p:last-child {
+  width: 96px;
+}
+
+.progress-dots {
+  width: 41px;
+  height: 10px;
+  position: absolute;
+  bottom: 57px;
+  left: 50%;
+  display: flex;
+  transform: translateX(-50%);
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+.progress-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(172, 220, 255, 0.48);
+}
+
+.progress-dot.is-active {
+  background: var(--aura-blue);
+}
+
+.sr-only {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (max-width: 520px) {
+  .card {
+    width: calc(100% - 32px);
+    border-radius: 52px;
+  }
+
+  .field-stack {
+    width: calc(100% - 48px);
+    left: 24px;
+  }
+
+  .auth-title {
+    font-size: 34px;
+  }
+
+  .question-title {
+    width: calc(100% - 92px);
+    left: 46px;
+  }
+
+  .scale-control {
+    width: calc(100% - 88px);
+    left: 44px;
+  }
+
+  .scale-labels {
+    width: calc(100% - 72px);
+    left: 36px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
