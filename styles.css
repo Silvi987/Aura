@@ -30,7 +30,8 @@ body {
 }
 
 button,
-input {
+input,
+select {
   font: inherit;
 }
 
@@ -63,6 +64,13 @@ button {
 
 .screen-register {
   --screen-height: 968px;
+}
+
+.home-screen {
+  background:
+    radial-gradient(circle at 0% 34%, rgba(255, 228, 94, 0.9) 0 10%, rgba(246, 148, 193, 0.68) 16%, rgba(172, 220, 255, 0.45) 31%, rgba(255, 255, 255, 0) 47%),
+    radial-gradient(circle at 88% 83%, rgba(255, 228, 94, 0.88) 0 12%, rgba(246, 148, 193, 0.62) 20%, rgba(172, 220, 255, 0.4) 34%, rgba(255, 255, 255, 0) 48%),
+    #ffffff;
 }
 
 .screen.is-active {
@@ -209,7 +217,12 @@ button {
 
 .button:focus-visible,
 .text-link:focus-visible,
-.scale-range:focus-visible {
+.scale-range:focus-visible,
+.choice-row:has(input:focus-visible),
+.plan-row:has(input:focus-visible),
+.project-item:focus-visible,
+.home-icon:focus-visible,
+.home-search input:focus {
   outline: 3px solid rgba(0, 0, 0, 0.72);
   outline-offset: 4px;
 }
@@ -391,28 +404,281 @@ button {
   width: 96px;
 }
 
-.progress-dots {
-  width: 41px;
-  height: 10px;
+.scale-labels-wide {
+  width: 389px;
+  left: 37px;
+}
+
+.scale-labels-wide p {
+  width: 126px;
+  white-space: nowrap;
+}
+
+.scale-labels-wide p:last-child {
+  width: 118px;
+}
+
+.choice-list,
+.plan-list {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.choice-list {
+  width: 308px;
   position: absolute;
-  bottom: 57px;
+  top: 136px;
+  left: 68px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.choice-row,
+.plan-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.choice-row {
+  min-height: 27px;
+  padding: 5px 10px;
+  font-weight: 300;
+}
+
+.choice-box,
+.plan-radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.custom-check {
+  width: 27px;
+  height: 27px;
+  position: relative;
+  flex: 0 0 auto;
+  border: 2px solid #000000;
+  background: #ffffff;
+  transition: background-color 140ms ease, box-shadow 140ms ease;
+}
+
+.choice-row:has(input:checked) .custom-check,
+.choice-row.is-selected .custom-check,
+.plan-row:has(input:checked) .custom-check,
+.plan-row.is-selected .custom-check {
+  background: var(--aura-yellow);
+  box-shadow: inset 0 0 0 5px #ffffff;
+}
+
+.pricing-card {
+  height: 475px;
+}
+
+.pricing-title {
+  width: 215px;
+  position: absolute;
+  top: 53px;
+  left: 50%;
+  margin: 0;
+  transform: translateX(-50%);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+}
+
+.plan-list {
+  width: 271px;
+  position: absolute;
+  top: 136px;
+  left: 89px;
+  display: flex;
+  flex-direction: column;
+  gap: 31px;
+}
+
+.plan-row {
+  align-items: flex-start;
+  padding: 5px 10px;
+  border-radius: 18px;
+  font-weight: 300;
+}
+
+.plan-row span:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.plan-row strong {
+  font-weight: 300;
+}
+
+.plan-row.is-selected {
+  background: rgba(255, 228, 94, 0.14);
+}
+
+.floating-button {
+  position: absolute;
+  top: calc(50% + 142px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pricing-button {
+  top: calc(50% + 194px);
+}
+
+.floating-button:hover {
+  transform: translate(-50%, -1px);
+}
+
+.floating-button:active {
+  transform: translate(-50%, 1px) scale(0.99);
+}
+
+.home-topbar {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.home-icon {
+  width: 55px;
+  height: 55px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.home-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.home-hero {
+  width: 175px;
+  position: absolute;
+  top: 140px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.aura-orb {
+  width: 175px;
+  height: 175px;
+  border: 4px solid #ffffff;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #e4a5ff 0%, #acdcff 100%);
+}
+
+.home-hero h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.project-grid {
+  position: absolute;
+  top: 423px;
   left: 50%;
   display: flex;
+  gap: 82px;
   transform: translateX(-50%);
+}
+
+.project-item {
+  width: 116px;
+  height: 128px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 7px;
+  justify-content: space-between;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.2;
 }
 
-.progress-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 999px;
-  background: rgba(172, 220, 255, 0.48);
+.project-card {
+  width: 116px;
+  height: 88px;
+  display: block;
+  border: 1px solid #000000;
+  border-radius: 25px;
+  background: #ffffff;
 }
 
-.progress-dot.is-active {
-  background: var(--aura-blue);
+.project-card-new {
+  position: relative;
+}
+
+.project-card-new::before,
+.project-card-new::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #000000;
+}
+
+.project-card-new::before {
+  width: 42px;
+  height: 1px;
+}
+
+.project-card-new::after {
+  width: 1px;
+  height: 42px;
+}
+
+.home-search {
+  width: min(547px, calc(100% - 96px));
+  height: 68px;
+  position: absolute;
+  left: 50%;
+  bottom: 50px;
+  transform: translateX(-50%);
+}
+
+.home-search input {
+  width: 100%;
+  height: 100%;
+  padding: 0 33px;
+  border: 1px solid #000000;
+  border-radius: 35px;
+  outline: none;
+  background: #ffffff;
+  color: #000000;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.home-search input::placeholder {
+  color: var(--aura-muted);
+  opacity: 1;
 }
 
 .sr-only {
@@ -481,6 +747,323 @@ button {
   .scale-labels {
     width: calc(100% - 72px);
     left: 36px;
+  }
+
+  .scale-labels-wide {
+    width: calc(100% - 48px);
+    left: 24px;
+  }
+
+  .choice-list {
+    width: calc(100% - 88px);
+    left: 44px;
+  }
+
+  .pricing-card {
+    height: 500px;
+  }
+
+  .plan-list {
+    width: calc(100% - 96px);
+    left: 48px;
+    gap: 24px;
+  }
+
+  .floating-button {
+    top: calc(50% + 151px);
+  }
+
+  .pricing-button {
+    top: calc(50% + 208px);
+  }
+
+  .home-topbar {
+    padding: 18px;
+  }
+
+  .home-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .home-hero {
+    top: 132px;
+    gap: 26px;
+  }
+
+  .aura-orb {
+    width: 164px;
+    height: 164px;
+  }
+
+  .project-grid {
+    top: 410px;
+    gap: clamp(42px, 14vw, 72px);
+  }
+
+  .home-search {
+    width: calc(100% - 48px);
+    bottom: 42px;
+  }
+
+  .dev-jump {
+    right: 10px;
+    bottom: 10px;
+    max-width: calc(100% - 20px);
+  }
+}
+
+@media (max-width: 430px) {
+  :root {
+    --card-radius: 46px;
+  }
+
+  body {
+    align-items: stretch;
+  }
+
+  .app-shell {
+    width: 100vw;
+  }
+
+  .screen {
+    --screen-height: 760px;
+  }
+
+  .screen-register {
+    --screen-height: 860px;
+  }
+
+  .card {
+    width: calc(100% - 28px);
+  }
+
+  .auth-card {
+    height: 500px;
+  }
+
+  .register-card {
+    height: 682px;
+  }
+
+  .auth-title {
+    top: 30px;
+    font-size: 32px;
+  }
+
+  .field-stack {
+    width: calc(100% - 42px);
+    left: 21px;
+    gap: 27px;
+  }
+
+  .text-input {
+    height: 62px;
+    padding: 0 27px;
+    font-size: 19px;
+  }
+
+  .field-error {
+    top: 66px;
+    left: 27px;
+  }
+
+  .login-actions {
+    top: 326px;
+  }
+
+  .register-actions {
+    top: 518px;
+  }
+
+  .info-card,
+  .question-card {
+    height: 352px;
+  }
+
+  .intro-copy {
+    top: 130px;
+    font-size: 22px;
+  }
+
+  .intro-button,
+  .floating-button {
+    top: calc(50% + 130px);
+  }
+
+  .question-title {
+    width: calc(100% - 72px);
+    top: 50px;
+    left: 36px;
+    font-size: 19px;
+  }
+
+  .scale-control {
+    width: calc(100% - 72px);
+    top: 148px;
+    left: 36px;
+  }
+
+  .scale-labels {
+    width: calc(100% - 52px);
+    top: 203px;
+    left: 26px;
+  }
+
+  .scale-labels p {
+    font-size: 19px;
+  }
+
+  .scale-labels-wide {
+    width: calc(100% - 34px);
+    left: 17px;
+  }
+
+  .choice-list {
+    width: calc(100% - 56px);
+    top: 130px;
+    left: 28px;
+    gap: 17px;
+  }
+
+  .choice-row,
+  .plan-row {
+    gap: 20px;
+  }
+
+  .pricing-card {
+    height: 500px;
+  }
+
+  .pricing-title {
+    top: 46px;
+  }
+
+  .plan-list {
+    width: calc(100% - 54px);
+    top: 118px;
+    left: 27px;
+    gap: 23px;
+  }
+
+  .pricing-button {
+    top: calc(50% + 203px);
+  }
+
+  .home-topbar {
+    padding: 18px 20px;
+  }
+
+  .home-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .home-hero {
+    top: 118px;
+    gap: 25px;
+  }
+
+  .aura-orb {
+    width: 152px;
+    height: 152px;
+  }
+
+  .project-grid {
+    top: 380px;
+    gap: clamp(34px, 12vw, 54px);
+  }
+
+  .project-item {
+    width: 104px;
+    height: 119px;
+    font-size: 15px;
+  }
+
+  .project-card {
+    width: 104px;
+    height: 80px;
+    border-radius: 22px;
+  }
+
+  .home-search {
+    width: calc(100% - 36px);
+    height: 62px;
+    bottom: 70px;
+  }
+
+  .home-search input {
+    padding: 0 26px;
+    font-size: 19px;
+  }
+
+  .dev-jump {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    justify-content: space-between;
+  }
+
+  .dev-jump select {
+    min-width: 0;
+    flex: 1;
+  }
+}
+
+@media (max-width: 380px) {
+  .screen {
+    --screen-height: 730px;
+  }
+
+  .screen-register {
+    --screen-height: 830px;
+  }
+
+  .card {
+    width: calc(100% - 20px);
+  }
+
+  .auth-card {
+    height: 482px;
+  }
+
+  .register-card {
+    height: 658px;
+  }
+
+  .field-stack {
+    gap: 23px;
+  }
+
+  .text-input {
+    height: 58px;
+    font-size: 18px;
+  }
+
+  .field-error {
+    top: 62px;
+  }
+
+  .login-actions {
+    top: 312px;
+  }
+
+  .register-actions {
+    top: 498px;
+  }
+
+  .button {
+    width: 154px;
+    height: 50px;
+    font-size: 22px;
+  }
+
+  .project-grid {
+    gap: 26px;
+  }
+
+  .home-search {
+    bottom: 66px;
   }
 }
 

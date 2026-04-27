@@ -87,7 +87,7 @@
           <h2 class="question-title" id="question-1-title">Come ti rivolgi a un gruppo di persone?</h2>
 
           <div class="scale-control" data-range-control>
-            <input class="scale-range" type="range" min="1" max="9" step="1" value="5" aria-label="Livello di sicurezza nel parlare a un gruppo" aria-valuetext="Neutrale">
+            <input class="scale-range" type="range" min="1" max="9" step="1" value="5" data-range-kind="confidence" aria-label="Livello di sicurezza nel parlare a un gruppo" aria-valuetext="Neutrale">
             <div class="scale-ticks" aria-hidden="true">
               <span></span>
               <span></span>
@@ -100,12 +100,113 @@
             <p>Panico<br>totale</p>
           </div>
 
-          <div class="progress-dots" aria-label="Domanda 1 di 3">
-            <span class="progress-dot is-active"></span>
-            <span class="progress-dot"></span>
-            <span class="progress-dot"></span>
+        </div>
+        <button class="button button-primary floating-button" type="button" data-go-to="question-2">Prosegui</button>
+      </section>
+
+      <section class="screen" data-screen="question-2" data-node-id="555:817" aria-labelledby="question-2-title">
+        <div class="card question-card">
+          <h2 class="question-title" id="question-2-title">Cosa temi di più dal tuo pubblico di ascoltatori?</h2>
+
+          <fieldset class="choice-list" data-checkbox-group>
+            <legend class="sr-only">Paure principali verso il pubblico</legend>
+            <label class="choice-row">
+              <input class="choice-box" type="checkbox" name="audience-fear" value="judgement">
+              <span class="custom-check" aria-hidden="true"></span>
+              <span>Giudizio esterno</span>
+            </label>
+            <label class="choice-row">
+              <input class="choice-box" type="checkbox" name="audience-fear" value="engagement">
+              <span class="custom-check" aria-hidden="true"></span>
+              <span>Non riuscire a coinvolgerlo</span>
+            </label>
+            <label class="choice-row">
+              <input class="choice-box" type="checkbox" name="audience-fear" value="questions">
+              <span class="custom-check" aria-hidden="true"></span>
+              <span>Domande dal pubblico</span>
+            </label>
+          </fieldset>
+        </div>
+        <button class="button button-primary floating-button" type="button" data-go-to="question-3">Prosegui</button>
+      </section>
+
+      <section class="screen" data-screen="question-3" data-node-id="555:841" aria-labelledby="question-3-title">
+        <div class="card question-card">
+          <h2 class="question-title" id="question-3-title">Vorresti migliorare le tue capacità espositive?</h2>
+
+          <div class="scale-control">
+            <input class="scale-range" type="range" min="1" max="9" step="1" value="5" data-range-kind="improvement" aria-label="Desiderio di migliorare le capacità espositive" aria-valuetext="Neutrale">
+            <div class="scale-ticks" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+
+          <div class="scale-labels scale-labels-wide" aria-hidden="true">
+            <p>Moltissimo</p>
+            <p>Pochissimo</p>
           </div>
         </div>
+        <button class="button button-primary floating-button" type="button" data-go-to="pricing">Prosegui</button>
+      </section>
+
+      <section class="screen" data-screen="pricing" data-node-id="555:1080" aria-labelledby="pricing-title">
+        <div class="card pricing-card">
+          <h2 class="pricing-title" id="pricing-title">Scegli il tuo piano!</h2>
+
+          <fieldset class="plan-list" data-plan-group>
+            <legend class="sr-only">Scelta piano</legend>
+            <label class="plan-row is-selected">
+              <input class="plan-radio" type="radio" name="plan" value="trial" checked>
+              <span class="custom-check" aria-hidden="true"></span>
+              <span><strong>PROVA GRATUITA</strong>Avrai a disposizione due settimane completamente gratuite per realizzare la tua presentazione!</span>
+            </label>
+            <label class="plan-row">
+              <input class="plan-radio" type="radio" name="plan" value="monthly">
+              <span class="custom-check" aria-hidden="true"></span>
+              <span><strong>Abbonamento Mensile</strong>a partire da 5 EUR/mese</span>
+            </label>
+            <label class="plan-row">
+              <input class="plan-radio" type="radio" name="plan" value="annual">
+              <span class="custom-check" aria-hidden="true"></span>
+              <span><strong>Abbonamento Annuale</strong>a partire da 50 EUR/anno</span>
+            </label>
+          </fieldset>
+        </div>
+        <button class="button button-primary floating-button pricing-button" type="button" data-go-to="home">Prosegui</button>
+      </section>
+
+      <section class="screen home-screen" data-screen="home" data-node-id="554:340" aria-labelledby="home-greeting">
+        <div class="home-topbar" aria-label="Azioni account e impostazioni">
+          <button class="home-icon" type="button" aria-label="Account">
+            <img src="svg/Icona-account.svg" alt="">
+          </button>
+          <button class="home-icon" type="button" aria-label="Impostazioni">
+            <img src="svg/Impostazioni-icona.svg" alt="">
+          </button>
+        </div>
+
+        <div class="home-hero">
+          <div class="aura-orb" aria-hidden="true"></div>
+          <h1 id="home-greeting">Ciao!</h1>
+        </div>
+
+        <div class="project-grid" aria-label="Progetti">
+          <button class="project-item" type="button">
+            <span class="project-card"></span>
+            <span>Business Plan</span>
+          </button>
+          <button class="project-item" type="button">
+            <span class="project-card project-card-new" aria-hidden="true"></span>
+            <span>New&nbsp; Project</span>
+          </button>
+        </div>
+
+        <label class="home-search">
+          <span class="sr-only">Cerca</span>
+          <input type="search" placeholder="Cerca">
+        </label>
       </section>
     </main>
 
@@ -116,6 +217,10 @@
         <option value="register">Registrazione</option>
         <option value="onboarding-intro">Intro domande</option>
         <option value="question-1">Domanda 1</option>
+        <option value="question-2">Domanda 2</option>
+        <option value="question-3">Domanda 3</option>
+        <option value="pricing">Piano</option>
+        <option value="home">Home</option>
       </select>
     </aside>
 

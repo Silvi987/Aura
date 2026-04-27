@@ -78,35 +78,68 @@ document.querySelectorAll("[data-go-to]").forEach((control) => {
   control.addEventListener("click", () => showScreen(control.dataset.goTo));
 });
 
-setupForm(document.querySelector('[data-form="login"]'), "onboarding-intro");
+setupForm(document.querySelector('[data-form="login"]'), "home");
 setupForm(document.querySelector('[data-form="register"]'), "onboarding-intro");
 
-const range = document.querySelector(".scale-range");
 const rangeLabels = {
-  1: "Sicuro di sé",
-  2: "Abbastanza sicuro",
-  3: "Sicuro, con qualche esitazione",
-  4: "Leggermente incerto",
-  5: "Neutrale",
-  6: "Un po' in difficoltà",
-  7: "In difficoltà",
-  8: "Molto agitato",
-  9: "Panico totale",
+  confidence: {
+    1: "Sicuro di sé",
+    2: "Abbastanza sicuro",
+    3: "Sicuro, con qualche esitazione",
+    4: "Leggermente incerto",
+    5: "Neutrale",
+    6: "Un po' in difficoltà",
+    7: "In difficoltà",
+    8: "Molto agitato",
+    9: "Panico totale",
+  },
+  improvement: {
+    1: "Moltissimo",
+    2: "Molto",
+    3: "Abbastanza",
+    4: "Un po'",
+    5: "Neutrale",
+    6: "Poco",
+    7: "Molto poco",
+    8: "Quasi per niente",
+    9: "Pochissimo",
+  },
 };
 
-function updateRangeState() {
-  range.setAttribute("aria-valuetext", rangeLabels[range.value]);
+function updateRangeState(range) {
+  const labels = rangeLabels[range.dataset.rangeKind];
+  range.setAttribute("aria-valuetext", labels[range.value]);
 }
 
-range.addEventListener("input", updateRangeState);
-updateRangeState();
+document.querySelectorAll(".scale-range").forEach((range) => {
+  range.addEventListener("input", () => updateRangeState(range));
+  updateRangeState(range);
+});
+
+document.querySelectorAll("[data-checkbox-group]").forEach((group) => {
+  group.addEventListener("change", () => {
+    group.querySelectorAll(".choice-row").forEach((row) => {
+      row.classList.toggle("is-selected", row.querySelector("input").checked);
+    });
+  });
+});
+
+document.querySelectorAll("[data-plan-group]").forEach((group) => {
+  group.addEventListener("change", () => {
+    group.querySelectorAll(".plan-row").forEach((row) => {
+      row.classList.toggle("is-selected", row.querySelector("input").checked);
+    });
+  });
+});
 
 const devJump = document.querySelector("[data-dev-jump]");
 
-devJump.addEventListener("change", () => {
-  showScreen(devJump.value);
-  history.replaceState(null, "", `#${devJump.value}`);
-});
+if (devJump) {
+  devJump.addEventListener("change", () => {
+    showScreen(devJump.value);
+    history.replaceState(null, "", `#${devJump.value}`);
+  });
+}
 
 if (window.location.hash) {
   showScreen(window.location.hash.slice(1));
