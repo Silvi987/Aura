@@ -148,6 +148,17 @@ Problemi e opportunità della Fase 2:
   - Miglioramenti proposti ma non approvati.
   - Modifiche respinte.
 
+## Regola Git E Checkpoint
+
+- Il progetto usa una repository Git locale nella cartella `/Users/utente10/Desktop/Silvia`.
+- A ogni nuova conversazione e prima di iniziare un nuovo checkpoint operativo, verificare lo stato Git.
+- Se esistono modifiche non committate dal checkpoint precedente, creare automaticamente un commit prima di iniziare il checkpoint successivo.
+- Ogni commit di checkpoint deve avere un messaggio breve e descrittivo in italiano, coerente con il contenuto delle modifiche.
+- Non creare commit vuoti se il worktree è pulito.
+- Non committare file che potrebbero contenere segreti o credenziali.
+- Non usare comandi Git distruttivi, amend o force push salvo richiesta esplicita del team.
+- Alla fine di ogni checkpoint importante, lasciare il progetto in uno stato committabile e preferibilmente già committato, così il checkpoint successivo può partire da una base pulita.
+
 ## Pacchetto Approvato Di Correzioni Copy
 
 Il team ha approvato un pacchetto per refusi evidenti e label incoerenti. Esempi:
