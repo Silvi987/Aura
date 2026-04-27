@@ -425,6 +425,34 @@ button {
   white-space: nowrap;
 }
 
+.dev-jump {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 10;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  color: #000000;
+  font-size: 12px;
+  font-weight: 400;
+  backdrop-filter: blur(12px);
+}
+
+.dev-jump select {
+  min-width: 138px;
+  border: 1px solid rgba(0, 0, 0, 0.28);
+  border-radius: 10px;
+  background: #ffffff;
+  color: #000000;
+  font-size: 12px;
+}
+
 @media (max-width: 520px) {
   .card {
     width: calc(100% - 32px);

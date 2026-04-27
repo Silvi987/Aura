@@ -1,10 +1,19 @@
 const screens = Array.from(document.querySelectorAll("[data-screen]"));
 
 function showScreen(name) {
+  if (!screens.some((screen) => screen.dataset.screen === name)) {
+    return;
+  }
+
   screens.forEach((screen) => {
     screen.classList.toggle("is-active", screen.dataset.screen === name);
   });
   window.scrollTo({ top: 0, behavior: "smooth" });
+
+  const devJump = document.querySelector("[data-dev-jump]");
+  if (devJump) {
+    devJump.value = name;
+  }
 }
 
 function getErrorMessage(input) {
@@ -91,3 +100,14 @@ function updateRangeState() {
 
 range.addEventListener("input", updateRangeState);
 updateRangeState();
+
+const devJump = document.querySelector("[data-dev-jump]");
+
+devJump.addEventListener("change", () => {
+  showScreen(devJump.value);
+  history.replaceState(null, "", `#${devJump.value}`);
+});
+
+if (window.location.hash) {
+  showScreen(window.location.hash.slice(1));
+}
