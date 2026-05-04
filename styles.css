@@ -533,7 +533,7 @@ button {
 }
 
 .pricing-button {
-  top: calc(50% + 194px);
+  top: calc(50% + 30vw);
 }
 
 .floating-button:hover {
@@ -930,10 +930,6 @@ button {
     top: 118px;
     left: 27px;
     gap: 23px;
-  }
-
-  .pricing-button {
-    top: calc(50% + 203px);
   }
 
   .home-topbar {
