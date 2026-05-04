@@ -78,7 +78,7 @@ button {
 }
 
 .card {
-  width: min(450px, calc(100% - 56px));
+  width: min(450px, calc(100% - 14vw));
   position: absolute;
   left: 50%;
   top: 50%;
@@ -721,7 +721,6 @@ button {
 
 @media (max-width: 520px) {
   .card {
-    width: calc(100% - 32px);
     border-radius: 52px;
   }
 
@@ -832,10 +831,6 @@ button {
 
   .screen-register {
     --screen-height: 860px;
-  }
-
-  .card {
-    width: calc(100% - 28px);
   }
 
   .auth-card {
@@ -1017,10 +1012,6 @@ button {
 
   .screen-register {
     --screen-height: 830px;
-  }
-
-  .card {
-    width: calc(100% - 20px);
   }
 
   .auth-card {
