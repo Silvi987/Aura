@@ -273,7 +273,7 @@ button {
 
 .intro-button {
   position: absolute;
-  top: calc(50% + 15vw);
+  top: calc(50% + 25vw);
   left: 50%;
   transform: translateX(-50%);
 }
