@@ -768,10 +768,6 @@ button {
     gap: 24px;
   }
 
-  .floating-button {
-    top: calc(50% + 151px);
-  }
-
   .pricing-button {
     top: calc(50% + 208px);
   }
