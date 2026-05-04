@@ -879,7 +879,7 @@ button {
 
   .intro-button,
   .floating-button {
-    top: calc(50% + 17vw);
+    top: calc(50% + 21vw);
   }
 
   .question-title {
