@@ -533,7 +533,7 @@ button {
 }
 
 .pricing-button {
-  top: calc(50% + 30vw);
+  top: calc(50% + 60vw);
 }
 
 .floating-button:hover {
