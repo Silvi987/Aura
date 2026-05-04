@@ -273,7 +273,7 @@ button {
 
 .intro-button {
   position: absolute;
-  top: calc(50% + 35vw);
+  top: calc(50% + 40vw);
   left: 50%;
   transform: translateX(-50%);
 }
@@ -766,10 +766,6 @@ button {
     width: calc(100% - 96px);
     left: 48px;
     gap: 24px;
-  }
-
-  .pricing-button {
-    top: calc(50% + 208px);
   }
 
   .home-topbar {
