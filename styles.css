@@ -527,7 +527,7 @@ button {
 
 .floating-button {
   position: absolute;
-  top: calc(50% + 21vw);
+  top: calc(50% + 19vw);
   left: 50%;
   transform: translateX(-50%);
 }
