@@ -78,7 +78,7 @@ button {
 }
 
 .card {
-  width: min(450px, calc(100% - 14vw));
+  width: min(450px, calc(100% - 13vw));
   position: absolute;
   left: 50%;
   top: 50%;
