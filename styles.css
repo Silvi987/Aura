@@ -727,6 +727,10 @@ button {
     border-radius: 52px;
   }
 
+  .button {
+    font-size: 22px;
+  }
+
   .field-stack {
     width: calc(100% - 48px);
     left: 24px;
@@ -751,6 +755,10 @@ button {
     left: 36px;
   }
 
+  .scale-labels p {
+    font-size: 19px;
+  }
+
   .scale-labels-wide {
     width: calc(100% - 48px);
     left: 24px;
@@ -769,10 +777,19 @@ button {
     top: calc(50% + 223px);
   }
 
+  .pricing-title {
+    font-size: 23px;
+  }
+
   .plan-list {
     width: calc(100% - 96px);
     left: 48px;
     gap: 24px;
+  }
+
+  .plan-row {
+    gap: 22px;
+    font-size: 15px;
   }
 
   .home-topbar {
@@ -882,14 +899,15 @@ button {
 
   .intro-copy {
     top: 130px;
-    font-size: 22px;
+    font-size: 20px;
+    line-height: 1.2;
   }
 
   .question-title {
     width: calc(100% - 72px);
     top: 50px;
     left: 36px;
-    font-size: 19px;
+    font-size: 18px;
   }
 
   .scale-control {
@@ -905,7 +923,7 @@ button {
   }
 
   .scale-labels p {
-    font-size: 19px;
+    font-size: 18px;
   }
 
   .scale-labels-wide {
@@ -922,7 +940,7 @@ button {
 
   .choice-row,
   .plan-row {
-    gap: 20px;
+    gap: 18px;
   }
 
   .pricing-card {
@@ -931,13 +949,20 @@ button {
 
   .pricing-title {
     top: 46px;
+    font-size: 21px;
   }
 
   .plan-list {
     width: calc(100% - 54px);
     top: 118px;
     left: 27px;
-    gap: 23px;
+    gap: 20px;
+  }
+
+  .plan-row {
+    padding: 4px 8px;
+    font-size: 14px;
+    line-height: 1.16;
   }
 
   .home-topbar {
@@ -1041,7 +1066,29 @@ button {
   .button {
     width: 154px;
     height: 50px;
-    font-size: 22px;
+    font-size: 19px;
+  }
+
+  .intro-copy {
+    width: calc(100% - 62px);
+    font-size: 18px;
+  }
+
+  .question-title {
+    font-size: 17px;
+  }
+
+  .scale-labels p {
+    font-size: 16px;
+  }
+
+  .choice-row {
+    font-size: 14px;
+  }
+
+  .custom-check {
+    width: 24px;
+    height: 24px;
   }
 
   .info-card + .intro-button,
@@ -1051,6 +1098,22 @@ button {
 
   .pricing-card + .pricing-button {
     top: calc(50% + 225px);
+  }
+
+  .pricing-title {
+    font-size: 19px;
+  }
+
+  .plan-list {
+    top: 108px;
+    gap: 16px;
+  }
+
+  .plan-row {
+    gap: 14px;
+    padding: 4px 7px;
+    font-size: 12px;
+    line-height: 1.13;
   }
 
   .project-grid {
