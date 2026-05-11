@@ -229,7 +229,9 @@ button {
 .draft-slide-action:focus-visible,
 .focus-action:focus-visible,
 .confirm-button:focus-visible,
-.start-rehearsal-button:focus-visible {
+.start-rehearsal-button:focus-visible,
+.voice-icon-button:focus-visible,
+.feedback-retry-button:focus-visible {
   outline: 3px solid rgba(0, 0, 0, 0.72);
   outline-offset: 4px;
 }
@@ -719,6 +721,19 @@ button {
 
 .screen.start-presentation-screen {
   --screen-height: 932px;
+}
+
+.screen.voice-track-screen {
+  --screen-height: 932px;
+}
+
+.screen.finish-presentation-screen {
+  --screen-height: 732px;
+}
+
+.screen.feedback-screen {
+  --screen-height: 1120px;
+  overflow: visible;
 }
 
 .chat-topbar {
@@ -1263,6 +1278,240 @@ button {
   bottom: 0;
 }
 
+.voice-track-title {
+  top: 138px;
+}
+
+.voice-stage {
+  width: 584px;
+  position: absolute;
+  top: 235px;
+  left: 58px;
+}
+
+.voice-slide-preview {
+  height: 339px;
+  position: relative;
+  padding: 50px 54px;
+  border-radius: 25px;
+  background: #ffffff;
+}
+
+.voice-slide-preview h2 {
+  margin: 0 0 24px;
+  font-family: var(--font-title);
+  font-size: 42px;
+  font-weight: 400;
+}
+
+.voice-slide-preview p {
+  width: 360px;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.25;
+}
+
+.voice-meter {
+  width: 340px;
+  height: 74px;
+  position: absolute;
+  right: 38px;
+  bottom: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.voice-meter span {
+  width: 18px;
+  height: 36px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #acdcff 0%, #e4a5ff 100%);
+  animation: waveform 920ms ease-in-out infinite;
+}
+
+.voice-meter span:nth-child(2) {
+  height: 58px;
+  animation-delay: 100ms;
+}
+
+.voice-meter span:nth-child(3) {
+  height: 42px;
+  animation-delay: 180ms;
+}
+
+.voice-meter span:nth-child(4) {
+  height: 66px;
+  animation-delay: 260ms;
+}
+
+.voice-meter span:nth-child(5) {
+  height: 46px;
+  animation-delay: 340ms;
+}
+
+.voice-meter span:nth-child(6) {
+  height: 56px;
+  animation-delay: 420ms;
+}
+
+.voice-track-screen.is-paused .voice-meter span {
+  animation-play-state: paused;
+  opacity: 0.42;
+}
+
+.voice-timer {
+  position: absolute;
+  right: 42px;
+  bottom: -62px;
+  margin: 0;
+  font-size: 28px;
+  font-weight: 300;
+}
+
+.voice-controls {
+  width: 184px;
+  position: absolute;
+  top: 654px;
+  left: 431px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.voice-icon-button {
+  width: 76px;
+  height: 76px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.voice-icon-button img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.finish-aura-row {
+  width: 564px;
+  position: absolute;
+  top: 214px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 37px;
+}
+
+.finish-bubble {
+  min-height: 82px;
+}
+
+.finish-actions {
+  width: 451px;
+  position: absolute;
+  top: 380px;
+  left: 133px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.feedback-panel {
+  width: 584px;
+  position: absolute;
+  top: 116px;
+  left: 58px;
+  padding: 42px 48px 48px;
+  border-radius: 45px;
+  background: #ffffff;
+}
+
+.feedback-panel h1 {
+  margin: 0 0 28px;
+  font-family: var(--font-title);
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+}
+
+.score-block {
+  width: 196px;
+  height: 196px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 34px;
+  border: 18px solid rgba(255, 228, 94, 0.82);
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at center, #ffffff 0 59%, transparent 60%),
+    conic-gradient(#ffe45e 0 75%, rgba(228, 165, 255, 0.3) 75% 100%);
+}
+
+.score-value {
+  font-size: 46px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.score-label {
+  margin-top: 8px;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.feedback-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.feedback-item {
+  padding: 18px 20px;
+  border-radius: 25px;
+  background: rgba(255, 228, 94, 0.16);
+}
+
+.feedback-item h2 {
+  margin: 0 0 8px;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.feedback-item p {
+  margin: 0 0 14px;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.25;
+}
+
+.feedback-bar {
+  height: 10px;
+  display: block;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(228, 165, 255, 0.22);
+}
+
+.feedback-bar span {
+  height: 100%;
+  display: block;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #acdcff 0%, #e4a5ff 100%);
+}
+
+.feedback-retry-button {
+  width: 220px;
+  position: absolute;
+  top: 1012px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 @keyframes typing-pulse {
   0%,
   100% {
@@ -1273,6 +1522,17 @@ button {
   50% {
     opacity: 1;
     transform: translateY(-3px);
+  }
+}
+
+@keyframes waveform {
+  0%,
+  100% {
+    transform: scaleY(0.62);
+  }
+
+  50% {
+    transform: scaleY(1);
   }
 }
 
@@ -1514,6 +1774,18 @@ button {
     --screen-height: 900px;
   }
 
+  .screen.voice-track-screen {
+    --screen-height: 900px;
+  }
+
+  .screen.finish-presentation-screen {
+    --screen-height: 760px;
+  }
+
+  .screen.feedback-screen {
+    --screen-height: 1100px;
+  }
+
   .slide-focus-title,
   .start-presentation-title {
     width: calc(100% - 72px);
@@ -1609,6 +1881,44 @@ button {
   .start-rehearsal-button {
     right: 40px;
     left: auto;
+  }
+
+  .voice-stage {
+    width: calc(100% - 80px);
+    left: 40px;
+  }
+
+  .voice-slide-preview {
+    height: 300px;
+  }
+
+  .voice-slide-preview p {
+    width: calc(100% - 160px);
+  }
+
+  .voice-controls {
+    right: 40px;
+    left: auto;
+  }
+
+  .finish-aura-row {
+    width: calc(100% - 48px);
+    left: 24px;
+    gap: 24px;
+  }
+
+  .finish-actions {
+    width: calc(100% - 96px);
+    left: 48px;
+  }
+
+  .feedback-panel {
+    width: calc(100% - 60px);
+    left: 30px;
+  }
+
+  .feedback-retry-button {
+    top: 1000px;
   }
 
   .dev-jump {
@@ -1905,6 +2215,18 @@ button {
     --screen-height: 840px;
   }
 
+  .screen.voice-track-screen {
+    --screen-height: 840px;
+  }
+
+  .screen.finish-presentation-screen {
+    --screen-height: 760px;
+  }
+
+  .screen.feedback-screen {
+    --screen-height: 1120px;
+  }
+
   .slide-focus-title {
     top: 132px;
     font-size: 28px;
@@ -2016,6 +2338,114 @@ button {
     width: 220px;
     top: 555px;
     right: 24px;
+    font-size: 18px;
+  }
+
+  .voice-track-title {
+    top: 132px;
+    font-size: 38px;
+  }
+
+  .voice-stage {
+    top: 230px;
+    width: calc(100% - 48px);
+    left: 24px;
+  }
+
+  .voice-slide-preview {
+    height: 260px;
+    padding: 34px 32px;
+  }
+
+  .voice-slide-preview h2 {
+    font-size: 32px;
+  }
+
+  .voice-slide-preview p {
+    width: 100%;
+    font-size: 15px;
+  }
+
+  .voice-meter {
+    width: 190px;
+    height: 54px;
+    right: 28px;
+    bottom: 24px;
+  }
+
+  .voice-meter span {
+    width: 11px;
+  }
+
+  .voice-timer {
+    right: 30px;
+    bottom: -50px;
+    font-size: 22px;
+  }
+
+  .voice-controls {
+    width: 160px;
+    top: 555px;
+    right: 24px;
+    left: auto;
+  }
+
+  .voice-icon-button {
+    width: 62px;
+    height: 62px;
+  }
+
+  .finish-aura-row {
+    top: 248px;
+    width: calc(100% - 48px);
+    left: 24px;
+    gap: 24px;
+  }
+
+  .finish-actions {
+    top: 390px;
+    width: calc(100% - 72px);
+    left: 36px;
+  }
+
+  .feedback-panel {
+    width: calc(100% - 40px);
+    top: 96px;
+    left: 20px;
+    padding: 34px 22px 34px;
+    border-radius: 36px;
+  }
+
+  .feedback-panel h1 {
+    font-size: 38px;
+  }
+
+  .score-block {
+    width: 150px;
+    height: 150px;
+    border-width: 14px;
+  }
+
+  .score-value {
+    font-size: 36px;
+  }
+
+  .feedback-item {
+    padding: 15px 16px;
+    border-radius: 22px;
+  }
+
+  .feedback-item h2 {
+    font-size: 20px;
+  }
+
+  .feedback-item p {
+    font-size: 14px;
+  }
+
+  .feedback-retry-button {
+    width: 180px;
+    top: 1028px;
     font-size: 18px;
   }
 
@@ -2188,6 +2618,24 @@ button {
     width: 132px;
     height: 50px;
     font-size: 19px;
+  }
+
+  .voice-controls {
+    width: 142px;
+  }
+
+  .voice-icon-button {
+    width: 58px;
+    height: 58px;
+  }
+
+  .feedback-panel {
+    width: calc(100% - 32px);
+    left: 16px;
+  }
+
+  .feedback-item p {
+    font-size: 13px;
   }
 }
 

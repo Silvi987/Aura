@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@400&family=Lexend:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=fase2e">
+    <link rel="stylesheet" href="styles.css?v=fase2f">
   </head>
   <body>
     <main class="app-shell" aria-live="polite">
@@ -421,12 +421,120 @@
           <span class="play-symbol"></span>
         </div>
 
-        <button class="start-rehearsal-button button button-primary" type="button">Avvia Presentazione</button>
+        <button class="start-rehearsal-button button button-primary" type="button" data-go-to="voice-track">Avvia Presentazione</button>
 
         <div class="prompt-composer start-composer">
           <div class="prompt-field prompt-field-static">Inserisci prompt qui ...</div>
           <button class="send-button" type="button" aria-label="Invia messaggio"></button>
         </div>
+      </section>
+
+      <section class="screen chat-screen voice-track-screen" data-screen="voice-track" data-node-id="652:2006" aria-labelledby="voice-track-title">
+        <div class="home-topbar chat-topbar" aria-label="Azioni account e impostazioni">
+          <button class="home-icon" type="button" aria-label="Account">
+            <img src="svg/Icona-account.svg" alt="">
+          </button>
+          <button class="home-icon" type="button" aria-label="Impostazioni">
+            <img src="svg/Impostazioni-icona.svg" alt="">
+          </button>
+        </div>
+
+        <h1 class="start-presentation-title voice-track-title" id="voice-track-title">Business Plan</h1>
+
+        <div class="voice-stage" aria-label="Registrazione prova in corso">
+          <div class="voice-slide-preview">
+            <h2>Target</h2>
+            <p>Studenti universitari che devono presentare un progetto con chiarezza e sicurezza.</p>
+          </div>
+          <div class="voice-meter" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <p class="voice-timer" data-recording-timer>00:00</p>
+        </div>
+
+        <div class="voice-controls" aria-label="Controlli registrazione simulata">
+          <button class="voice-icon-button" type="button" data-record-toggle aria-pressed="true" aria-label="Pausa o riprendi microfono">
+            <img src="svg/icona-microfono.svg" alt="">
+          </button>
+          <button class="voice-icon-button" type="button" data-go-to="finish-presentation" aria-label="Termina registrazione">
+            <img src="svg/icona-stop.svg" alt="">
+          </button>
+        </div>
+
+        <div class="prompt-composer voice-composer">
+          <div class="prompt-field prompt-field-static">Inserisci prompt qui ...</div>
+          <button class="send-button" type="button" aria-label="Invia messaggio"></button>
+        </div>
+      </section>
+
+      <section class="screen chat-screen finish-presentation-screen" data-screen="finish-presentation" data-node-id="566:1276" aria-labelledby="finish-message">
+        <div class="home-topbar chat-topbar" aria-label="Azioni account e impostazioni">
+          <button class="home-icon" type="button" aria-label="Account">
+            <img src="svg/Icona-account.svg" alt="">
+          </button>
+          <button class="home-icon" type="button" aria-label="Impostazioni">
+            <img src="svg/Impostazioni-icona.svg" alt="">
+          </button>
+        </div>
+
+        <div class="finish-aura-row">
+          <span class="chat-avatar chat-avatar-aura" aria-hidden="true"></span>
+          <p class="chat-bubble finish-bubble" id="finish-message">Hai terminato la prova della presentazione?</p>
+        </div>
+
+        <div class="finish-actions">
+          <button class="confirm-button cancel-button" type="button" data-go-to="voice-track">No</button>
+          <button class="confirm-button accept-button" type="button" data-go-to="feedback">Sì</button>
+        </div>
+
+        <div class="prompt-composer finish-composer">
+          <div class="prompt-field prompt-field-static">Inserisci prompt qui ...</div>
+          <button class="send-button" type="button" aria-label="Invia messaggio"></button>
+        </div>
+      </section>
+
+      <section class="screen chat-screen feedback-screen" data-screen="feedback" data-node-id="556:919" aria-labelledby="feedback-title">
+        <div class="home-topbar chat-topbar" aria-label="Azioni account e impostazioni">
+          <button class="home-icon" type="button" aria-label="Account">
+            <img src="svg/Icona-account.svg" alt="">
+          </button>
+          <button class="home-icon" type="button" aria-label="Impostazioni">
+            <img src="svg/Impostazioni-icona.svg" alt="">
+          </button>
+        </div>
+
+        <div class="feedback-panel">
+          <h1 id="feedback-title">Feedback</h1>
+          <div class="score-block" aria-label="Punteggio finale 75 per cento">
+            <span class="score-value">75%</span>
+            <span class="score-label">Punteggio finale</span>
+          </div>
+
+          <div class="feedback-list" aria-label="Categorie feedback">
+            <article class="feedback-item">
+              <h2>Chiarezza</h2>
+              <p>Hai mantenuto un filo logico riconoscibile. Rendi più espliciti i passaggi tra una slide e l'altra.</p>
+              <span class="feedback-bar"><span style="width: 80%"></span></span>
+            </article>
+            <article class="feedback-item">
+              <h2>Voce</h2>
+              <p>Il tono è stabile. Alcuni punti chiave possono essere scanditi con più pausa.</p>
+              <span class="feedback-bar"><span style="width: 72%"></span></span>
+            </article>
+            <article class="feedback-item">
+              <h2>Ritmo</h2>
+              <p>Il tempo complessivo è buono. Accorcia leggermente l'introduzione per lasciare spazio alla conclusione.</p>
+              <span class="feedback-bar"><span style="width: 70%"></span></span>
+            </article>
+            <article class="feedback-item">
+              <h2>Coinvolgimento</h2>
+              <p>La parte sul target funziona bene. Aggiungi un esempio concreto per rendere il pubblico più partecipe.</p>
+              <span class="feedback-bar"><span style="width: 78%"></span></span>
+            </article>
+          </div>
+        </div>
+
+        <button class="feedback-retry-button button button-primary" type="button" data-go-to="start-presentation">Riprova</button>
       </section>
     </main>
 
@@ -447,9 +555,12 @@
         <option value="slide-focus">Focus slide 4</option>
         <option value="presentation-ok">Presentazione ok</option>
         <option value="start-presentation">Avvia presentazione</option>
+        <option value="voice-track">Traccia vocale</option>
+        <option value="finish-presentation">Fine presentazione</option>
+        <option value="feedback">Feedback</option>
       </select>
     </aside>
 
-    <script src="script.js?v=fase2d"></script>
+    <script src="script.js?v=fase2e"></script>
   </body>
 </html>

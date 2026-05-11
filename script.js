@@ -14,6 +14,8 @@ function showScreen(name) {
   if (devJump) {
     devJump.value = name;
   }
+
+  syncScreenState(name);
 }
 
 function getErrorMessage(input) {
@@ -130,6 +132,56 @@ const focusSlides = {
 };
 
 let currentFocusSlide = 4;
+let recordingSeconds = 0;
+let recordingInterval = null;
+let recordingPaused = false;
+
+function formatRecordingTime(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = seconds % 60;
+  return `${String(minutes).padStart(2, "0")}:${String(remainingSeconds).padStart(2, "0")}`;
+}
+
+function updateRecordingTimer() {
+  const timer = document.querySelector("[data-recording-timer]");
+
+  if (timer) {
+    timer.textContent = formatRecordingTime(recordingSeconds);
+  }
+}
+
+function stopRecordingTimer() {
+  window.clearInterval(recordingInterval);
+  recordingInterval = null;
+}
+
+function startRecordingTimer() {
+  const screen = document.querySelector('[data-screen="voice-track"]');
+  const toggle = document.querySelector("[data-record-toggle]");
+
+  stopRecordingTimer();
+  recordingSeconds = 0;
+  recordingPaused = false;
+  screen?.classList.remove("is-paused");
+  toggle?.setAttribute("aria-pressed", "true");
+  updateRecordingTimer();
+
+  recordingInterval = window.setInterval(() => {
+    if (!recordingPaused) {
+      recordingSeconds += 1;
+      updateRecordingTimer();
+    }
+  }, 1000);
+}
+
+function syncScreenState(screenName) {
+  if (screenName === "voice-track") {
+    startRecordingTimer();
+    return;
+  }
+
+  stopRecordingTimer();
+}
 
 function resetFocusActions(screen, slide) {
   const copy = screen.querySelector("[data-focus-copy]");
@@ -207,6 +259,16 @@ document.querySelectorAll("[data-focus-step]").forEach((button) => {
   button.addEventListener("click", () => {
     const nextSlide = Math.min(5, Math.max(3, currentFocusSlide + Number(button.dataset.focusStep)));
     setFocusSlide(nextSlide);
+  });
+});
+
+document.querySelectorAll("[data-record-toggle]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const screen = button.closest("[data-screen]");
+
+    recordingPaused = !recordingPaused;
+    screen.classList.toggle("is-paused", recordingPaused);
+    button.setAttribute("aria-pressed", recordingPaused ? "false" : "true");
   });
 });
 
