@@ -727,7 +727,7 @@ button {
   font-size: 12px;
 }
 
-@media (max-width: 520px) {
+@media (max-width: 600px) {
   .card {
     border-radius: 52px;
   }
