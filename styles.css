@@ -1019,10 +1019,8 @@ button {
   position: absolute;
   top: 73px;
   left: 53px;
-  border-radius: 999px;
-  background:
-    conic-gradient(from 14deg, #ffffff 0 19%, transparent 19% 100%),
-    conic-gradient(from 14deg, #acdcff 0 28%, #e4a5ff 28% 100%);
+  display: block;
+  object-fit: contain;
 }
 
 .target-layout {
@@ -1192,9 +1190,10 @@ button {
   width: 112px;
   height: 112px;
   position: absolute;
-  top: 114px;
-  left: 342px;
+  top: 50%;
+  left: 50%;
   display: block;
+  transform: translate(-50%, -50%);
   clip-path: polygon(18% 0, 100% 50%, 18% 100%);
   background: linear-gradient(135deg, #acdcff 0%, #e4a5ff 100%);
 }
@@ -1536,10 +1535,6 @@ button {
     width: calc(100% - 80px);
     height: 300px;
     left: 40px;
-  }
-
-  .play-symbol {
-    left: 58%;
   }
 
   .start-rehearsal-button {
@@ -1941,7 +1936,6 @@ button {
   .play-symbol {
     width: 92px;
     height: 92px;
-    top: 84px;
   }
 
   .start-rehearsal-button {
