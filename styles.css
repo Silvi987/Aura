@@ -227,6 +227,7 @@ button {
 .send-button:focus-visible,
 .round-next-button:focus-visible,
 .draft-slide-action:focus-visible,
+.focus-nav-button:focus-visible,
 .focus-action:focus-visible,
 .confirm-button:focus-visible,
 .start-rehearsal-button:focus-visible {
@@ -992,6 +993,36 @@ button {
   top: 154px;
 }
 
+.focus-slide-nav {
+  width: 584px;
+  position: absolute;
+  top: 104px;
+  left: 50%;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  transform: translateX(-50%);
+}
+
+.focus-nav-button {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #acdcff 0%, #e4a5ff 100%);
+  box-shadow: 0 8px 20px rgba(172, 220, 255, 0.28);
+  cursor: pointer;
+}
+
+.focus-nav-button img {
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+
 .focus-workspace {
   width: 584px;
   position: absolute;
@@ -1466,6 +1497,21 @@ button {
     font-size: 32px;
   }
 
+  .focus-slide-nav {
+    width: calc(100% - 76px);
+    top: 96px;
+  }
+
+  .focus-nav-button {
+    width: 44px;
+    height: 44px;
+  }
+
+  .focus-nav-button img {
+    width: 28px;
+    height: 28px;
+  }
+
   .focus-workspace {
     width: calc(100% - 60px);
     top: 236px;
@@ -1839,6 +1885,11 @@ button {
   .slide-focus-title {
     top: 132px;
     font-size: 28px;
+  }
+
+  .focus-slide-nav {
+    width: calc(100% - 48px);
+    top: 84px;
   }
 
   .focus-workspace {
