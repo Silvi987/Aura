@@ -870,33 +870,9 @@ button {
   position: absolute;
   top: 540px;
   left: 607px;
-  border: 3px solid var(--aura-blue);
-  background: #ffffff;
-}
-
-.round-next-button::before,
-.round-next-button::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  background: #9ebcff;
-  transform: translateX(-50%);
-}
-
-.round-next-button::before {
-  width: 2px;
-  height: 20px;
-  top: 12px;
-}
-
-.round-next-button::after {
-  width: 14px;
-  height: 14px;
-  top: 23px;
-  border-right: 2px solid #9ebcff;
-  border-bottom: 2px solid #9ebcff;
-  background: transparent;
-  transform: translateX(-50%) rotate(45deg);
+  padding: 0;
+  border: 0;
+  background: url("svg/freccina.svg") center / contain no-repeat;
 }
 
 .draft-list {
