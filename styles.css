@@ -527,9 +527,12 @@ button {
 
 .floating-button {
   position: absolute;
-  top: calc(50% + 40vw);
   left: 50%;
   transform: translateX(-50%);
+}
+
+.question-card + .floating-button {
+  top: calc(50% + 158.5px);
 }
 
 .pricing-button {
@@ -868,6 +871,10 @@ button {
     height: 352px;
   }
 
+  .question-card + .floating-button {
+    top: calc(50% + 149px);
+  }
+
   .intro-copy {
     top: 130px;
     font-size: 22px;
@@ -1030,6 +1037,10 @@ button {
     width: 154px;
     height: 50px;
     font-size: 22px;
+  }
+
+  .question-card + .floating-button {
+    top: calc(50% + 151px);
   }
 
   .project-grid {
