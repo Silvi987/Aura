@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@400&family=Lexend:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=fase2b">
+    <link rel="stylesheet" href="styles.css?v=fase2c">
   </head>
   <body>
     <main class="app-shell" aria-live="polite">
@@ -297,11 +297,11 @@
             <span class="draft-number">3</span>
             <p class="draft-notes">Testo dell'esposizione - Qui</p>
           </article>
-          <article class="draft-slide">
+          <button class="draft-slide draft-slide-action" type="button" data-go-to="slide-focus" aria-label="Apri slide 4 Target">
             <div class="draft-card"><h2>Target</h2></div>
             <span class="draft-number">4</span>
             <p class="draft-notes">Testo dell'esposizione - Qui</p>
-          </article>
+          </button>
           <article class="draft-slide">
             <div class="draft-card"><h2>Marketing</h2></div>
             <span class="draft-number">5</span>
@@ -329,6 +329,96 @@
           <button class="send-button" type="button" aria-label="Invia modifica bozza"></button>
         </div>
       </section>
+
+      <section class="screen chat-screen slide-focus-screen" data-screen="slide-focus" data-node-id="556:497" aria-labelledby="slide-focus-title">
+        <div class="home-topbar chat-topbar" aria-label="Azioni account e impostazioni">
+          <button class="home-icon" type="button" aria-label="Account">
+            <img src="svg/Icona-account.svg" alt="">
+          </button>
+          <button class="home-icon" type="button" aria-label="Impostazioni">
+            <img src="svg/Impostazioni-icona.svg" alt="">
+          </button>
+        </div>
+
+        <h1 class="slide-focus-title" id="slide-focus-title">Focus sulla slide 4 - Target</h1>
+
+        <div class="focus-workspace">
+          <div class="slide-preview" data-slide-preview>
+            <div class="target-chart" aria-hidden="true"></div>
+            <div class="target-layout" aria-hidden="true">
+              <h2>Target</h2>
+              <p>Studenti universitari che devono presentare un progetto con chiarezza e sicurezza.</p>
+              <span>Bisogno: provare in uno spazio sicuro</span>
+            </div>
+          </div>
+
+          <button class="focus-action button button-primary" type="button" data-systemize-slide>Sistema Slide</button>
+
+          <p class="focus-copy" data-focus-copy>Il target di un business plan rappresenta un ipotetico gruppo di persone che potrebbero essere in linea con il prodotto o servizio che vuoi proporre.</p>
+
+          <button class="focus-action button button-primary" type="button" data-expand-text>Espandi Testo</button>
+        </div>
+
+        <div class="prompt-composer focus-composer">
+          <div class="prompt-field prompt-field-static">Inserisci prompt qui ...</div>
+          <button class="send-button" type="button" data-go-to="presentation-ok" aria-label="Conferma modifiche slide"></button>
+        </div>
+      </section>
+
+      <section class="screen chat-screen presentation-ok-screen" data-screen="presentation-ok" data-node-id="652:1956" aria-labelledby="presentation-ok-message">
+        <div class="home-topbar chat-topbar" aria-label="Azioni account e impostazioni">
+          <button class="home-icon" type="button" aria-label="Account">
+            <img src="svg/Icona-account.svg" alt="">
+          </button>
+          <button class="home-icon" type="button" aria-label="Impostazioni">
+            <img src="svg/Impostazioni-icona.svg" alt="">
+          </button>
+        </div>
+
+        <div class="confirm-user-row">
+          <p class="chat-bubble confirm-bubble" id="presentation-ok-message">La presentazione va bene, possiamo chiuderla e iniziare a provarla.</p>
+          <span class="chat-avatar chat-avatar-user" aria-hidden="true"></span>
+        </div>
+
+        <div class="confirm-aura-row">
+          <span class="chat-avatar chat-avatar-aura" aria-hidden="true"></span>
+          <p class="chat-bubble confirm-question">Ok, mi confermi che sei pronto a ripetere?</p>
+        </div>
+
+        <div class="confirm-actions">
+          <button class="confirm-button cancel-button" type="button" data-go-to="slide-focus">Annulla</button>
+          <button class="confirm-button accept-button" type="button" data-go-to="start-presentation">Conferma</button>
+        </div>
+
+        <div class="prompt-composer confirm-composer">
+          <div class="prompt-field prompt-field-static">Inserisci prompt qui ...</div>
+          <button class="send-button" type="button" aria-label="Invia messaggio"></button>
+        </div>
+      </section>
+
+      <section class="screen chat-screen start-presentation-screen" data-screen="start-presentation" data-node-id="556:811" aria-labelledby="start-presentation-title">
+        <div class="home-topbar chat-topbar" aria-label="Azioni account e impostazioni">
+          <button class="home-icon" type="button" aria-label="Account">
+            <img src="svg/Icona-account.svg" alt="">
+          </button>
+          <button class="home-icon" type="button" aria-label="Impostazioni">
+            <img src="svg/Impostazioni-icona.svg" alt="">
+          </button>
+        </div>
+
+        <h1 class="start-presentation-title" id="start-presentation-title">Business Plan</h1>
+
+        <div class="start-slide-preview" aria-hidden="true">
+          <span class="play-symbol"></span>
+        </div>
+
+        <button class="start-rehearsal-button button button-primary" type="button">Avvia Presentazione</button>
+
+        <div class="prompt-composer start-composer">
+          <div class="prompt-field prompt-field-static">Inserisci prompt qui ...</div>
+          <button class="send-button" type="button" aria-label="Invia messaggio"></button>
+        </div>
+      </section>
     </main>
 
     <aside class="dev-jump" aria-label="Navigazione sviluppo">
@@ -345,9 +435,12 @@
         <option value="new-presentation">Nuova presentazione</option>
         <option value="prompt">Prompt</option>
         <option value="draft">Bozza 8 slide</option>
+        <option value="slide-focus">Focus slide 4</option>
+        <option value="presentation-ok">Presentazione ok</option>
+        <option value="start-presentation">Avvia presentazione</option>
       </select>
     </aside>
 
-    <script src="script.js?v=fase2a"></script>
+    <script src="script.js?v=fase2c"></script>
   </body>
 </html>

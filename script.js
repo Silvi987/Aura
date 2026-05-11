@@ -102,6 +102,30 @@ document.querySelectorAll("[data-prompt-form]").forEach((form) => {
   });
 });
 
+document.querySelectorAll("[data-systemize-slide]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const screen = button.closest("[data-screen]");
+    const preview = screen.querySelector("[data-slide-preview]");
+
+    preview.classList.add("is-systemized");
+    button.classList.add("is-applied");
+    button.textContent = "Slide sistemata";
+  });
+});
+
+document.querySelectorAll("[data-expand-text]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const screen = button.closest("[data-screen]");
+    const copy = screen.querySelector("[data-focus-copy]");
+
+    copy.textContent =
+      "Il target di un business plan rappresenta il gruppo di persone a cui il progetto si rivolge. In questa slide puoi specificare chi sono gli utenti principali, quali bisogni hanno e perché la proposta risponde in modo concreto al loro contesto.";
+    copy.classList.add("is-expanded");
+    button.classList.add("is-applied");
+    button.textContent = "Testo espanso";
+  });
+});
+
 const rangeLabels = {
   confidence: {
     1: "Sicuro di sé",
