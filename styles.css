@@ -742,6 +742,10 @@ button {
     #ffffff;
 }
 
+.feedback-screen .home-topbar {
+  display: none;
+}
+
 .chat-topbar {
   z-index: 2;
 }
@@ -1636,6 +1640,7 @@ button {
   left: auto;
   font-size: 22px;
   transform: none;
+  white-space: nowrap;
 }
 
 .feedback-composer {
@@ -2087,12 +2092,12 @@ button {
   }
 
   .feedback-panel {
-    width: calc(100% - 60px);
-    left: 30px;
+    width: calc(100% - 52px);
+    left: 50%;
   }
 
   .feedback-retry-button {
-    top: 1000px;
+    top: 1300px;
   }
 
   .dev-jump {
@@ -2398,7 +2403,7 @@ button {
   }
 
   .screen.feedback-screen {
-    --screen-height: 1120px;
+    --screen-height: 1520px;
   }
 
   .slide-focus-title {
@@ -2587,44 +2592,90 @@ button {
   }
 
   .feedback-panel {
-    width: calc(100% - 40px);
-    top: 96px;
-    left: 20px;
-    padding: 34px 22px 34px;
-    border-radius: 36px;
+    width: calc(100% - 52px);
+    top: 10px;
+    left: 50%;
+    padding: 0;
+    border-radius: 0;
   }
 
   .feedback-panel h1 {
-    font-size: 38px;
+    font-size: 22px;
+  }
+
+  .feedback-summary {
+    grid-template-columns: 165px 1fr;
+    gap: 16px;
+    margin-top: 44px;
   }
 
   .score-block {
-    width: 150px;
-    height: 150px;
-    border-width: 14px;
+    width: 154px;
+    height: 154px;
   }
 
   .score-value {
-    font-size: 36px;
+    font-size: 46px;
+  }
+
+  .feedback-legend {
+    gap: 22px;
+    font-size: 10px;
+  }
+
+  .feedback-legend li {
+    gap: 12px;
+  }
+
+  .legend-dot {
+    width: 14px;
+    height: 14px;
+    flex-basis: 14px;
+  }
+
+  .feedback-list {
+    gap: 38px;
+    margin-top: 42px;
   }
 
   .feedback-item {
-    padding: 15px 16px;
-    border-radius: 22px;
+    padding: 0;
+    border-radius: 0;
   }
 
   .feedback-item h2 {
-    font-size: 20px;
+    margin: 0 0 12px 20px;
+    font-size: 12px;
   }
 
-  .feedback-item p {
-    font-size: 14px;
+  .feedback-copy {
+    min-height: 72px;
+    padding: 12px 14px;
+    border-width: 1px;
+    border-radius: 16px;
+    font-size: 9px;
+    line-height: 1.16;
   }
 
   .feedback-retry-button {
-    width: 180px;
-    top: 1028px;
-    font-size: 18px;
+    width: 198px;
+    height: 43px;
+    top: 1264px;
+    right: 28px;
+    font-size: 14px;
+  }
+
+  .feedback-composer {
+    width: calc(100% - 58px);
+    bottom: 22px;
+  }
+
+  .feedback-prompt-field {
+    width: calc(100% - 72px);
+    height: 67px;
+    padding: 18px 20px;
+    border-radius: 16px;
+    font-size: 10px;
   }
 
   .dev-jump {
@@ -2809,11 +2860,35 @@ button {
   }
 
   .feedback-panel {
-    width: calc(100% - 32px);
-    left: 16px;
+    width: calc(100% - 46px);
+    left: 50%;
   }
 
-  .feedback-item p {
+  .feedback-summary {
+    grid-template-columns: 150px 1fr;
+    gap: 12px;
+  }
+
+  .score-block {
+    width: 142px;
+    height: 142px;
+  }
+
+  .score-value {
+    font-size: 42px;
+  }
+
+  .feedback-legend {
+    font-size: 9px;
+    gap: 19px;
+  }
+
+  .feedback-copy {
+    font-size: 8.5px;
+  }
+
+  .feedback-retry-button {
+    width: 198px;
     font-size: 13px;
   }
 }
