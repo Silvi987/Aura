@@ -273,7 +273,6 @@ button {
 
 .intro-button {
   position: absolute;
-  top: calc(50% + 40vw);
   left: 50%;
   transform: translateX(-50%);
 }
@@ -531,12 +530,13 @@ button {
   transform: translateX(-50%);
 }
 
+.info-card + .intro-button,
 .question-card + .floating-button {
   top: calc(50% + 158.5px);
 }
 
-.pricing-button {
-  top: calc(50% + 60vw);
+.pricing-card + .pricing-button {
+  top: calc(50% + 210.5px);
 }
 
 .floating-button:hover {
@@ -765,6 +765,10 @@ button {
     height: 500px;
   }
 
+  .pricing-card + .pricing-button {
+    top: calc(50% + 223px);
+  }
+
   .plan-list {
     width: calc(100% - 96px);
     left: 48px;
@@ -871,6 +875,7 @@ button {
     height: 352px;
   }
 
+  .info-card + .intro-button,
   .question-card + .floating-button {
     top: calc(50% + 149px);
   }
@@ -1039,8 +1044,13 @@ button {
     font-size: 22px;
   }
 
+  .info-card + .intro-button,
   .question-card + .floating-button {
     top: calc(50% + 151px);
+  }
+
+  .pricing-card + .pricing-button {
+    top: calc(50% + 225px);
   }
 
   .project-grid {
