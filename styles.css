@@ -852,27 +852,16 @@ button {
 .round-next-button {
   position: relative;
   flex: 0 0 auto;
-  border: 3px solid var(--aura-blue);
   border-radius: 999px;
-  background: #ffffff;
   cursor: pointer;
 }
 
 .send-button {
   width: 76px;
   height: 76px;
-}
-
-.send-button::before {
-  content: "";
-  width: 39px;
-  height: 39px;
-  position: absolute;
-  top: 18px;
-  left: 17px;
-  clip-path: polygon(0 52%, 88% 0, 68% 100%, 47% 62%);
-  background: linear-gradient(135deg, #acdcff 0%, #e4a5ff 100%);
-  transform: rotate(8deg);
+  padding: 0;
+  border: 0;
+  background: url("svg/icona-invio.svg") center / contain no-repeat;
 }
 
 .round-next-button {
@@ -881,6 +870,8 @@ button {
   position: absolute;
   top: 540px;
   left: 607px;
+  border: 3px solid var(--aura-blue);
+  background: #ffffff;
 }
 
 .round-next-button::before,
@@ -1461,13 +1452,6 @@ button {
   .send-button {
     width: 62px;
     height: 62px;
-  }
-
-  .send-button::before {
-    width: 32px;
-    height: 32px;
-    top: 14px;
-    left: 14px;
   }
 
   .draft-list {
