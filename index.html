@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@400&family=Lexend:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=fase2a">
   </head>
   <body>
     <main class="app-shell" aria-live="polite">
@@ -193,11 +193,11 @@
         </div>
 
         <div class="project-grid" aria-label="Progetti">
-          <button class="project-item" type="button">
+          <button class="project-item" type="button" data-go-to="new-presentation">
             <span class="project-card"></span>
             <span>Business Plan</span>
           </button>
-          <button class="project-item" type="button">
+          <button class="project-item" type="button" data-go-to="new-presentation">
             <span class="project-card project-card-new" aria-hidden="true"></span>
             <span>New&nbsp; Project</span>
           </button>
@@ -207,6 +207,127 @@
           <span class="sr-only">Cerca</span>
           <input type="search" placeholder="Cerca">
         </label>
+      </section>
+
+      <section class="screen chat-screen" data-screen="new-presentation" data-node-id="556:362" aria-labelledby="new-presentation-message">
+        <div class="home-topbar chat-topbar" aria-label="Azioni account e impostazioni">
+          <button class="home-icon" type="button" aria-label="Account">
+            <img src="svg/Icona-account.svg" alt="">
+          </button>
+          <button class="home-icon" type="button" aria-label="Impostazioni">
+            <img src="svg/Impostazioni-icona.svg" alt="">
+          </button>
+        </div>
+
+        <div class="chat-row chat-row-center">
+          <span class="chat-avatar chat-avatar-aura" aria-hidden="true"></span>
+          <p class="chat-bubble" id="new-presentation-message">Ciao, io sono Aura e sono qui per aiutarti. Cosa vogliamo fare oggi?</p>
+        </div>
+
+        <form class="prompt-composer" data-prompt-form>
+          <label class="prompt-field">
+            <span class="sr-only">Prompt per Aura</span>
+            <textarea data-prompt-input rows="3" placeholder="Inserisci prompt qui ..."></textarea>
+          </label>
+          <button class="send-button" type="submit" aria-label="Invia prompt"></button>
+        </form>
+      </section>
+
+      <section class="screen chat-screen prompt-screen" data-screen="prompt" data-node-id="554:384" aria-labelledby="prompt-assistant-message">
+        <div class="home-topbar chat-topbar" aria-label="Azioni account e impostazioni">
+          <button class="home-icon" type="button" aria-label="Account">
+            <img src="svg/Icona-account.svg" alt="">
+          </button>
+          <button class="home-icon" type="button" aria-label="Impostazioni">
+            <img src="svg/Impostazioni-icona.svg" alt="">
+          </button>
+        </div>
+
+        <div class="chat-row chat-row-top">
+          <span class="chat-avatar chat-avatar-aura" aria-hidden="true"></span>
+          <p class="chat-bubble" id="prompt-assistant-message">Ciao, io sono Aura e sono qui per aiutarti. Cosa vogliamo fare oggi?</p>
+        </div>
+
+        <div class="chat-row chat-row-user">
+          <p class="chat-bubble user-bubble" data-user-prompt>Sono uno studente di economia all'università e devo preparare una presentazione sul business plan in 8 slide e da esporre in 10/15 minuti.</p>
+          <span class="chat-avatar chat-avatar-user" aria-hidden="true"></span>
+        </div>
+
+        <div class="typing-row" aria-label="Aura sta preparando la bozza">
+          <span class="chat-avatar chat-avatar-aura" aria-hidden="true"></span>
+          <span class="typing-dots" aria-hidden="true"><span></span><span></span><span></span></span>
+        </div>
+
+        <button class="round-next-button" type="button" data-go-to="draft" aria-label="Apri la bozza generata"></button>
+
+        <div class="prompt-composer prompt-composer-static">
+          <div class="prompt-field prompt-field-static">Inserisci prompt qui ...</div>
+          <button class="send-button" type="button" data-go-to="draft" aria-label="Vai alla bozza"></button>
+        </div>
+      </section>
+
+      <section class="screen chat-screen draft-screen" data-screen="draft" data-node-id="566:752" aria-labelledby="draft-message">
+        <div class="home-topbar chat-topbar" aria-label="Azioni account e impostazioni">
+          <button class="home-icon" type="button" aria-label="Account">
+            <img src="svg/Icona-account.svg" alt="">
+          </button>
+          <button class="home-icon" type="button" aria-label="Impostazioni">
+            <img src="svg/Impostazioni-icona.svg" alt="">
+          </button>
+        </div>
+
+        <div class="chat-row chat-row-top draft-intro-row">
+          <span class="chat-avatar chat-avatar-aura" aria-hidden="true"></span>
+          <p class="chat-bubble" id="draft-message">Ecco le 8 slide, divise per topic sul Business plan. Iniziamo ad impaginare!</p>
+        </div>
+
+        <div class="draft-list" aria-label="Bozza presentazione Business Plan">
+          <article class="draft-slide">
+            <div class="draft-card"><h2>Cover</h2></div>
+            <span class="draft-number">1</span>
+            <p class="draft-notes">Testo dell'esposizione - Qui</p>
+          </article>
+          <article class="draft-slide">
+            <div class="draft-card"><h2>Business Idea</h2></div>
+            <span class="draft-number">2</span>
+            <p class="draft-notes">Testo dell'esposizione - Qui</p>
+          </article>
+          <article class="draft-slide">
+            <div class="draft-card"><h2>Business Name</h2></div>
+            <span class="draft-number">3</span>
+            <p class="draft-notes">Testo dell'esposizione - Qui</p>
+          </article>
+          <article class="draft-slide">
+            <div class="draft-card"><h2>Target</h2></div>
+            <span class="draft-number">4</span>
+            <p class="draft-notes">Testo dell'esposizione - Qui</p>
+          </article>
+          <article class="draft-slide">
+            <div class="draft-card"><h2>Marketing</h2></div>
+            <span class="draft-number">5</span>
+            <p class="draft-notes">Testo dell'esposizione - Qui</p>
+          </article>
+          <article class="draft-slide">
+            <div class="draft-card"><h2>Pricing</h2></div>
+            <span class="draft-number">6</span>
+            <p class="draft-notes">Testo dell'esposizione - Qui</p>
+          </article>
+          <article class="draft-slide">
+            <div class="draft-card"><h2>Profit</h2></div>
+            <span class="draft-number">7</span>
+            <p class="draft-notes">Testo dell'esposizione - Qui</p>
+          </article>
+          <article class="draft-slide">
+            <div class="draft-card"><h2>Conclusione</h2></div>
+            <span class="draft-number">8</span>
+            <p class="draft-notes">Testo dell'esposizione - Qui</p>
+          </article>
+        </div>
+
+        <div class="prompt-composer draft-composer">
+          <div class="prompt-field prompt-field-static">Inserisci prompt qui ...</div>
+          <button class="send-button" type="button" aria-label="Invia modifica bozza"></button>
+        </div>
       </section>
     </main>
 
@@ -221,9 +342,12 @@
         <option value="question-3">Domanda 3</option>
         <option value="pricing">Piano</option>
         <option value="home">Home</option>
+        <option value="new-presentation">Nuova presentazione</option>
+        <option value="prompt">Prompt</option>
+        <option value="draft">Bozza 8 slide</option>
       </select>
     </aside>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=fase2a"></script>
   </body>
 </html>

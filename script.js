@@ -81,6 +81,27 @@ document.querySelectorAll("[data-go-to]").forEach((control) => {
 setupForm(document.querySelector('[data-form="login"]'), "home");
 setupForm(document.querySelector('[data-form="register"]'), "onboarding-intro");
 
+const defaultBusinessPrompt =
+  "Sono uno studente di economia all'università e devo preparare una presentazione sul business plan in 8 slide e da esporre in 10/15 minuti.";
+
+function setPromptPreview(text) {
+  document.querySelectorAll("[data-user-prompt]").forEach((target) => {
+    target.textContent = text;
+  });
+}
+
+document.querySelectorAll("[data-prompt-form]").forEach((form) => {
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const input = form.querySelector("[data-prompt-input]");
+    const prompt = input.value.trim() || defaultBusinessPrompt;
+    input.value = prompt;
+    setPromptPreview(prompt);
+    showScreen("prompt");
+  });
+});
+
 const rangeLabels = {
   confidence: {
     1: "Sicuro di sé",
@@ -144,3 +165,7 @@ if (devJump) {
 if (window.location.hash) {
   showScreen(window.location.hash.slice(1));
 }
+
+window.addEventListener("hashchange", () => {
+  showScreen(window.location.hash.slice(1));
+});
