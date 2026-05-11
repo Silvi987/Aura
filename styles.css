@@ -261,14 +261,14 @@ button {
 .intro-copy {
   width: 252px;
   position: absolute;
-  top: 141px;
+  top: 50%;
   left: 50%;
   margin: 0;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   font-size: 24px;
   font-weight: 400;
   line-height: 1.22;
-  text-align: left;
+  text-align: center;
 }
 
 .intro-button {
@@ -898,7 +898,6 @@ button {
   }
 
   .intro-copy {
-    top: 130px;
     font-size: 20px;
     line-height: 1.2;
   }
