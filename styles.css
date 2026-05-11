@@ -1279,81 +1279,158 @@ button {
 }
 
 .voice-track-title {
-  top: 138px;
+  top: 120px;
 }
 
 .voice-stage {
   width: 584px;
   position: absolute;
-  top: 235px;
+  top: 206px;
   left: 58px;
 }
 
 .voice-slide-preview {
   height: 339px;
   position: relative;
-  padding: 50px 54px;
+  display: grid;
+  place-items: center;
+  padding: 42px 54px;
   border-radius: 25px;
   background: #ffffff;
+  text-align: center;
+}
+
+.voice-slide-preview span {
+  position: absolute;
+  top: 28px;
+  left: 34px;
+  color: rgba(0, 0, 0, 0.42);
+  font-size: 18px;
+  font-weight: 300;
 }
 
 .voice-slide-preview h2 {
-  margin: 0 0 24px;
+  margin: 0;
   font-family: var(--font-title);
-  font-size: 42px;
+  font-size: 52px;
   font-weight: 400;
+  line-height: 1;
 }
 
 .voice-slide-preview p {
-  width: 360px;
+  position: absolute;
+  bottom: 42px;
+  left: 54px;
   margin: 0;
-  font-size: 20px;
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 22px;
   font-weight: 300;
   line-height: 1.25;
 }
 
-.voice-meter {
-  width: 340px;
-  height: 74px;
+.voice-recorder {
+  width: 584px;
   position: absolute;
-  right: 38px;
-  bottom: 34px;
+  top: 604px;
+  left: 58px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.voice-wave-card {
+  height: 112px;
+  flex: 1 1 auto;
+  display: grid;
+  place-items: center;
+  border-radius: 35px;
+  background: #ffffff;
+}
+
+.voice-meter {
+  width: 258px;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .voice-meter span {
-  width: 18px;
-  height: 36px;
+  width: 8px;
+  height: 26px;
   border-radius: 999px;
-  background: linear-gradient(180deg, #acdcff 0%, #e4a5ff 100%);
+  background: #acdcff;
   animation: waveform 920ms ease-in-out infinite;
 }
 
 .voice-meter span:nth-child(2) {
-  height: 58px;
+  height: 32px;
   animation-delay: 100ms;
 }
 
 .voice-meter span:nth-child(3) {
-  height: 42px;
+  height: 44px;
   animation-delay: 180ms;
 }
 
 .voice-meter span:nth-child(4) {
-  height: 66px;
+  height: 58px;
   animation-delay: 260ms;
 }
 
 .voice-meter span:nth-child(5) {
-  height: 46px;
+  height: 34px;
   animation-delay: 340ms;
 }
 
 .voice-meter span:nth-child(6) {
-  height: 56px;
+  height: 44px;
   animation-delay: 420ms;
+}
+
+.voice-meter span:nth-child(7) {
+  height: 66px;
+  animation-delay: 500ms;
+}
+
+.voice-meter span:nth-child(8) {
+  height: 98px;
+  animation-delay: 580ms;
+}
+
+.voice-meter span:nth-child(9) {
+  height: 66px;
+  animation-delay: 660ms;
+}
+
+.voice-meter span:nth-child(10) {
+  height: 48px;
+  animation-delay: 740ms;
+}
+
+.voice-meter span:nth-child(11) {
+  height: 34px;
+  animation-delay: 820ms;
+}
+
+.voice-meter span:nth-child(12) {
+  height: 44px;
+  animation-delay: 900ms;
+}
+
+.voice-meter span:nth-child(13) {
+  height: 58px;
+  animation-delay: 980ms;
+}
+
+.voice-meter span:nth-child(14) {
+  height: 38px;
+  animation-delay: 1060ms;
+}
+
+.voice-meter span:nth-child(15) {
+  height: 26px;
+  animation-delay: 1140ms;
 }
 
 .voice-track-screen.is-paused .voice-meter span {
@@ -1361,20 +1438,9 @@ button {
   opacity: 0.42;
 }
 
-.voice-timer {
-  position: absolute;
-  right: 42px;
-  bottom: -62px;
-  margin: 0;
-  font-size: 28px;
-  font-weight: 300;
-}
-
 .voice-controls {
-  width: 184px;
-  position: absolute;
-  top: 654px;
-  left: 431px;
+  width: 174px;
+  flex: 0 0 174px;
   display: flex;
   justify-content: space-between;
 }
@@ -1883,8 +1949,13 @@ button {
     left: auto;
   }
 
+  .voice-track-title {
+    top: 116px;
+  }
+
   .voice-stage {
     width: calc(100% - 80px);
+    top: 198px;
     left: 40px;
   }
 
@@ -1892,13 +1963,33 @@ button {
     height: 300px;
   }
 
-  .voice-slide-preview p {
-    width: calc(100% - 160px);
+  .voice-recorder {
+    width: calc(100% - 80px);
+    top: 558px;
+    left: 40px;
+    gap: 18px;
+  }
+
+  .voice-wave-card {
+    height: 104px;
+  }
+
+  .voice-meter {
+    width: 230px;
   }
 
   .voice-controls {
-    right: 40px;
-    left: auto;
+    width: 164px;
+    flex-basis: 164px;
+  }
+
+  .voice-icon-button {
+    width: 72px;
+    height: 72px;
+  }
+
+  .voice-slide-preview p {
+    width: auto;
   }
 
   .finish-aura-row {
@@ -2341,13 +2432,8 @@ button {
     font-size: 18px;
   }
 
-  .voice-track-title {
-    top: 132px;
-    font-size: 38px;
-  }
-
   .voice-stage {
-    top: 230px;
+    top: 216px;
     width: calc(100% - 48px);
     left: 24px;
   }
@@ -2357,37 +2443,46 @@ button {
     padding: 34px 32px;
   }
 
-  .voice-slide-preview h2 {
-    font-size: 32px;
-  }
-
-  .voice-slide-preview p {
-    width: 100%;
+  .voice-slide-preview span {
+    top: 24px;
+    left: 28px;
     font-size: 15px;
   }
 
+  .voice-slide-preview h2 {
+    font-size: 38px;
+  }
+
+  .voice-slide-preview p {
+    bottom: 30px;
+    left: 32px;
+    font-size: 15px;
+  }
+
+  .voice-recorder {
+    width: calc(100% - 48px);
+    top: 528px;
+    left: 24px;
+    gap: 12px;
+  }
+
+  .voice-wave-card {
+    height: 86px;
+    border-radius: 30px;
+  }
+
   .voice-meter {
-    width: 190px;
-    height: 54px;
-    right: 28px;
-    bottom: 24px;
+    width: 136px;
+    height: 52px;
   }
 
   .voice-meter span {
-    width: 11px;
-  }
-
-  .voice-timer {
-    right: 30px;
-    bottom: -50px;
-    font-size: 22px;
+    width: 5px;
   }
 
   .voice-controls {
-    width: 160px;
-    top: 555px;
-    right: 24px;
-    left: auto;
+    width: 132px;
+    flex-basis: 132px;
   }
 
   .voice-icon-button {
@@ -2621,7 +2716,8 @@ button {
   }
 
   .voice-controls {
-    width: 142px;
+    width: 124px;
+    flex-basis: 124px;
   }
 
   .voice-icon-button {

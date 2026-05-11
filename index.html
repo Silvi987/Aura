@@ -441,29 +441,32 @@
 
         <h1 class="start-presentation-title voice-track-title" id="voice-track-title">Business Plan</h1>
 
-        <div class="voice-stage" aria-label="Registrazione prova in corso">
+        <div class="voice-stage" aria-label="Slide 1 della presentazione">
           <div class="voice-slide-preview">
-            <h2>Target</h2>
-            <p>Studenti universitari che devono presentare un progetto con chiarezza e sicurezza.</p>
+            <span>Slide 1</span>
+            <h2>Business Plan</h2>
+            <p>Cover</p>
           </div>
-          <div class="voice-meter" aria-hidden="true">
-            <span></span><span></span><span></span><span></span><span></span><span></span>
-          </div>
-          <p class="voice-timer" data-recording-timer>00:00</p>
         </div>
 
-        <div class="voice-controls" aria-label="Controlli registrazione simulata">
-          <button class="voice-icon-button" type="button" data-record-toggle aria-pressed="true" aria-label="Pausa o riprendi microfono">
-            <img src="svg/icona-microfono.svg" alt="">
-          </button>
-          <button class="voice-icon-button" type="button" data-go-to="finish-presentation" aria-label="Termina registrazione">
-            <img src="svg/icona-stop.svg" alt="">
-          </button>
-        </div>
+        <div class="voice-recorder" aria-label="Registrazione prova in corso">
+          <div class="voice-wave-card">
+            <div class="voice-meter" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span>
+            </div>
+            <p class="voice-timer sr-only" data-recording-timer>00:00</p>
+          </div>
 
-        <div class="prompt-composer voice-composer">
-          <div class="prompt-field prompt-field-static">Inserisci prompt qui ...</div>
-          <button class="send-button" type="button" aria-label="Invia messaggio"></button>
+          <div class="voice-controls" aria-label="Controlli registrazione simulata">
+            <button class="voice-icon-button" type="button" data-go-to="finish-presentation" aria-label="Termina registrazione">
+              <img src="svg/icona-stop.svg" alt="">
+            </button>
+            <button class="voice-icon-button" type="button" data-record-toggle aria-pressed="true" aria-label="Pausa o riprendi microfono">
+              <img src="svg/icona-microfono.svg" alt="">
+            </button>
+          </div>
         </div>
       </section>
 
