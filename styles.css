@@ -227,7 +227,6 @@ button {
 .send-button:focus-visible,
 .round-next-button:focus-visible,
 .draft-slide-action:focus-visible,
-.focus-nav-button:focus-visible,
 .focus-action:focus-visible,
 .confirm-button:focus-visible,
 .start-rehearsal-button:focus-visible {
@@ -1013,6 +1012,10 @@ button {
   border: 0;
   background: transparent;
   cursor: pointer;
+}
+
+.focus-nav-button:focus {
+  outline: none;
 }
 
 .focus-nav-button img {

@@ -146,14 +146,15 @@ function resetFocusActions(screen, slide) {
 }
 
 function setFocusSlide(slideNumber) {
-  const slide = focusSlides[slideNumber] || focusSlides[4];
+  const normalizedSlide = focusSlides[slideNumber] ? Number(slideNumber) : 4;
+  const slide = focusSlides[normalizedSlide];
   const screen = document.querySelector('[data-screen="slide-focus"]');
 
   if (!screen) {
     return;
   }
 
-  currentFocusSlide = Number(slideNumber);
+  currentFocusSlide = normalizedSlide;
   screen.dataset.currentSlide = String(currentFocusSlide);
   screen.querySelector("#slide-focus-title").textContent = slide.title;
   screen.querySelector(".target-layout h2").textContent = slide.heading;
@@ -264,15 +265,31 @@ const devJump = document.querySelector("[data-dev-jump]");
 
 if (devJump) {
   devJump.addEventListener("change", () => {
+    if (devJump.value === "slide-focus") {
+      setFocusSlide(4);
+    }
+
     showScreen(devJump.value);
     history.replaceState(null, "", `#${devJump.value}`);
   });
 }
 
 if (window.location.hash) {
-  showScreen(window.location.hash.slice(1));
+  const hashScreen = window.location.hash.slice(1);
+
+  if (hashScreen === "slide-focus") {
+    setFocusSlide(4);
+  }
+
+  showScreen(hashScreen);
 }
 
 window.addEventListener("hashchange", () => {
-  showScreen(window.location.hash.slice(1));
+  const hashScreen = window.location.hash.slice(1);
+
+  if (hashScreen === "slide-focus") {
+    setFocusSlide(4);
+  }
+
+  showScreen(hashScreen);
 });
