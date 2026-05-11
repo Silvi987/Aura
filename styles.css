@@ -994,9 +994,9 @@ button {
 }
 
 .focus-slide-nav {
-  width: 584px;
+  width: 220px;
   position: absolute;
-  top: 104px;
+  top: 62px;
   left: 50%;
   z-index: 2;
   display: flex;
@@ -1005,21 +1005,19 @@ button {
 }
 
 .focus-nav-button {
-  width: 48px;
-  height: 48px;
+  width: 50px;
+  height: 50px;
   display: grid;
   place-items: center;
   padding: 0;
   border: 0;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #acdcff 0%, #e4a5ff 100%);
-  box-shadow: 0 8px 20px rgba(172, 220, 255, 0.28);
+  background: transparent;
   cursor: pointer;
 }
 
 .focus-nav-button img {
-  width: 30px;
-  height: 30px;
+  width: 44px;
+  height: 44px;
   display: block;
 }
 
@@ -1111,6 +1109,28 @@ button {
 }
 
 .slide-preview.is-systemized .target-layout span {
+  align-self: end;
+}
+
+.slide-preview.is-text-slide .target-chart {
+  display: none;
+}
+
+.slide-preview.is-text-slide .target-layout {
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto 1fr;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-preview.is-text-slide .target-layout h2,
+.slide-preview.is-text-slide .target-layout p,
+.slide-preview.is-text-slide .target-layout span {
+  grid-column: 1;
+  justify-self: start;
+}
+
+.slide-preview.is-text-slide .target-layout span {
   align-self: end;
 }
 
@@ -1498,18 +1518,18 @@ button {
   }
 
   .focus-slide-nav {
-    width: calc(100% - 76px);
-    top: 96px;
+    width: 190px;
+    top: 80px;
   }
 
   .focus-nav-button {
-    width: 44px;
-    height: 44px;
+    width: 46px;
+    height: 46px;
   }
 
   .focus-nav-button img {
-    width: 28px;
-    height: 28px;
+    width: 40px;
+    height: 40px;
   }
 
   .focus-workspace {
@@ -1888,8 +1908,8 @@ button {
   }
 
   .focus-slide-nav {
-    width: calc(100% - 48px);
-    top: 84px;
+    width: 170px;
+    top: 82px;
   }
 
   .focus-workspace {

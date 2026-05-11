@@ -75,7 +75,13 @@ function setupForm(form, nextScreen) {
 }
 
 document.querySelectorAll("[data-go-to]").forEach((control) => {
-  control.addEventListener("click", () => showScreen(control.dataset.goTo));
+  control.addEventListener("click", () => {
+    if (control.dataset.focusSlide) {
+      setFocusSlide(Number(control.dataset.focusSlide));
+    }
+
+    showScreen(control.dataset.goTo);
+  });
 });
 
 setupForm(document.querySelector('[data-form="login"]'), "home");
@@ -88,6 +94,76 @@ function setPromptPreview(text) {
   document.querySelectorAll("[data-user-prompt]").forEach((target) => {
     target.textContent = text;
   });
+}
+
+const focusSlides = {
+  3: {
+    title: "Focus sulla slide 3 - Business Name",
+    heading: "Business Name",
+    description: "Nome del progetto, tono del brand e promessa principale da ricordare.",
+    note: "Obiettivo: essere chiari e riconoscibili",
+    copy:
+      "La slide sul business name introduce il nome del progetto e aiuta il pubblico a ricordare subito identità, tono e promessa della proposta.",
+    expandedCopy:
+      "La slide sul business name presenta il nome del progetto e spiega perché è coerente con il servizio. Deve aiutare il pubblico a collegare subito identità, tono di voce e valore della proposta.",
+  },
+  4: {
+    title: "Focus sulla slide 4 - Target",
+    heading: "Target",
+    description: "Studenti universitari che devono presentare un progetto con chiarezza e sicurezza.",
+    note: "Bisogno: provare in uno spazio sicuro",
+    copy:
+      "Il target di un business plan rappresenta un ipotetico gruppo di persone che potrebbero essere in linea con il prodotto o servizio che vuoi proporre.",
+    expandedCopy:
+      "Il target di un business plan rappresenta il gruppo di persone a cui il progetto si rivolge. In questa slide puoi specificare chi sono gli utenti principali, quali bisogni hanno e perché la proposta risponde in modo concreto al loro contesto.",
+  },
+  5: {
+    title: "Focus sulla slide 5 - Marketing",
+    heading: "Marketing",
+    description: "Canali, messaggi e azioni per raggiungere il pubblico giusto.",
+    note: "Obiettivo: spiegare come il progetto arriva al target",
+    copy:
+      "La slide marketing mostra quali canali e messaggi userai per far conoscere il progetto alle persone più interessate.",
+    expandedCopy:
+      "La slide marketing chiarisce come il progetto raggiunge il suo pubblico. Puoi citare i canali principali, il messaggio da comunicare e le prime azioni concrete per far arrivare la proposta al target.",
+  },
+};
+
+let currentFocusSlide = 4;
+
+function resetFocusActions(screen, slide) {
+  const copy = screen.querySelector("[data-focus-copy]");
+  const systemizeButton = screen.querySelector("[data-systemize-slide]");
+  const expandButton = screen.querySelector("[data-expand-text]");
+
+  copy.textContent = slide.copy;
+  copy.classList.remove("is-expanded");
+
+  systemizeButton.classList.remove("is-applied");
+  systemizeButton.textContent = "Sistema Slide";
+  expandButton.classList.remove("is-applied");
+  expandButton.textContent = "Espandi Testo";
+}
+
+function setFocusSlide(slideNumber) {
+  const slide = focusSlides[slideNumber] || focusSlides[4];
+  const screen = document.querySelector('[data-screen="slide-focus"]');
+
+  if (!screen) {
+    return;
+  }
+
+  currentFocusSlide = Number(slideNumber);
+  screen.dataset.currentSlide = String(currentFocusSlide);
+  screen.querySelector("#slide-focus-title").textContent = slide.title;
+  screen.querySelector(".target-layout h2").textContent = slide.heading;
+  screen.querySelector(".target-layout p").textContent = slide.description;
+  screen.querySelector(".target-layout span").textContent = slide.note;
+
+  const preview = screen.querySelector("[data-slide-preview]");
+  preview.classList.remove("is-systemized", "is-text-slide");
+  preview.classList.toggle("is-text-slide", currentFocusSlide !== 4);
+  resetFocusActions(screen, slide);
 }
 
 document.querySelectorAll("[data-prompt-form]").forEach((form) => {
@@ -117,12 +193,19 @@ document.querySelectorAll("[data-expand-text]").forEach((button) => {
   button.addEventListener("click", () => {
     const screen = button.closest("[data-screen]");
     const copy = screen.querySelector("[data-focus-copy]");
+    const slide = focusSlides[currentFocusSlide] || focusSlides[4];
 
-    copy.textContent =
-      "Il target di un business plan rappresenta il gruppo di persone a cui il progetto si rivolge. In questa slide puoi specificare chi sono gli utenti principali, quali bisogni hanno e perché la proposta risponde in modo concreto al loro contesto.";
+    copy.textContent = slide.expandedCopy;
     copy.classList.add("is-expanded");
     button.classList.add("is-applied");
     button.textContent = "Testo espanso";
+  });
+});
+
+document.querySelectorAll("[data-focus-step]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const nextSlide = Math.min(5, Math.max(3, currentFocusSlide + Number(button.dataset.focusStep)));
+    setFocusSlide(nextSlide);
   });
 });
 

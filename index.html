@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@400&family=Lexend:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=fase2d">
+    <link rel="stylesheet" href="styles.css?v=fase2e">
   </head>
   <body>
     <main class="app-shell" aria-live="polite">
@@ -297,7 +297,7 @@
             <span class="draft-number">3</span>
             <p class="draft-notes">Testo dell'esposizione - Qui</p>
           </article>
-          <button class="draft-slide draft-slide-action" type="button" data-go-to="slide-focus" aria-label="Apri slide 4 Target">
+          <button class="draft-slide draft-slide-action" type="button" data-go-to="slide-focus" data-focus-slide="4" aria-label="Apri slide 4 Target">
             <div class="draft-card"><h2>Target</h2></div>
             <span class="draft-number">4</span>
             <p class="draft-notes">Testo dell'esposizione - Qui</p>
@@ -341,10 +341,10 @@
         </div>
 
         <div class="focus-slide-nav" aria-label="Navigazione slide">
-          <button class="focus-nav-button" type="button" data-go-to="draft" aria-label="Torna alla bozza">
+          <button class="focus-nav-button" type="button" data-focus-step="-1" aria-label="Vai alla slide precedente">
             <img src="svg/freccia%20a%20sinistra.svg" alt="">
           </button>
-          <button class="focus-nav-button" type="button" data-go-to="presentation-ok" aria-label="Prosegui alla conferma">
+          <button class="focus-nav-button" type="button" data-focus-step="1" aria-label="Vai alla slide successiva">
             <img src="svg/freccia%20a%20destra.svg" alt="">
           </button>
         </div>
@@ -450,6 +450,6 @@
       </select>
     </aside>
 
-    <script src="script.js?v=fase2c"></script>
+    <script src="script.js?v=fase2d"></script>
   </body>
 </html>
