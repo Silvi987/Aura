@@ -732,8 +732,14 @@ button {
 }
 
 .screen.feedback-screen {
-  --screen-height: 1120px;
+  --screen-height: 1560px;
   overflow: visible;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(172, 220, 255, 0.32) 0 0, rgba(172, 220, 255, 0.32) 0 80px, transparent 190px),
+    radial-gradient(circle at 53% 0%, rgba(246, 148, 193, 0.26) 0 0, rgba(246, 148, 193, 0.26) 0 48px, transparent 150px),
+    radial-gradient(circle at 87% 100%, rgba(255, 228, 94, 0.55) 0 0, rgba(255, 228, 94, 0.55) 0 86px, transparent 176px),
+    radial-gradient(circle at 61% 98%, rgba(172, 220, 255, 0.22) 0 0, rgba(172, 220, 255, 0.22) 0 92px, transparent 190px),
+    #ffffff;
 }
 
 .chat-topbar {
@@ -1485,97 +1491,174 @@ button {
 }
 
 .feedback-panel {
-  width: 584px;
+  width: 600px;
   position: absolute;
-  top: 116px;
-  left: 58px;
-  padding: 42px 48px 48px;
-  border-radius: 45px;
-  background: #ffffff;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .feedback-panel h1 {
-  margin: 0 0 28px;
+  margin: 0;
   font-family: var(--font-title);
-  font-size: 48px;
+  font-size: 30px;
   font-weight: 400;
   line-height: 1;
   text-align: center;
 }
 
+.feedback-summary {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  align-items: center;
+  gap: 44px;
+  margin-top: 54px;
+}
+
 .score-block {
-  width: 196px;
-  height: 196px;
+  width: 250px;
+  height: 250px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 34px;
-  border: 18px solid rgba(255, 228, 94, 0.82);
+  justify-self: center;
   border-radius: 999px;
   background:
-    radial-gradient(circle at center, #ffffff 0 59%, transparent 60%),
-    conic-gradient(#ffe45e 0 75%, rgba(228, 165, 255, 0.3) 75% 100%);
+    radial-gradient(circle at center, #ffffff 0 53%, transparent 54%),
+    conic-gradient(from 11deg, #ffe45e 0 25%, #f694c1 25% 50%, #a7f58a 50% 63%, #d989ff 63% 100%);
 }
 
 .score-value {
-  font-size: 46px;
+  font-size: 68px;
   font-weight: 400;
   line-height: 1;
 }
 
-.score-label {
-  margin-top: 8px;
-  font-size: 15px;
+.feedback-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 16px;
   font-weight: 300;
+}
+
+.feedback-legend li {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.legend-dot {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  border-radius: 999px;
+}
+
+.legend-oral {
+  background: #ffe45e;
+}
+
+.legend-salient {
+  background: #f694c1;
+}
+
+.legend-growth {
+  background: #a7f58a;
+}
+
+.legend-coherence {
+  background: #d989ff;
 }
 
 .feedback-list {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 48px;
+  margin-top: 58px;
 }
 
 .feedback-item {
-  padding: 18px 20px;
-  border-radius: 25px;
-  background: rgba(255, 228, 94, 0.16);
+  padding: 0;
+  background: transparent;
 }
 
 .feedback-item h2 {
-  margin: 0 0 8px;
-  font-size: 24px;
-  font-weight: 400;
-}
-
-.feedback-item p {
-  margin: 0 0 14px;
+  margin: 0 0 20px 24px;
   font-size: 16px;
   font-weight: 300;
-  line-height: 1.25;
 }
 
-.feedback-bar {
-  height: 10px;
-  display: block;
-  overflow: hidden;
-  border-radius: 999px;
-  background: rgba(228, 165, 255, 0.22);
+.feedback-copy {
+  min-height: 116px;
+  padding: 18px 22px;
+  border: 2px solid #ffe45e;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.56);
+  color: #000000;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.2;
 }
 
-.feedback-bar span {
-  height: 100%;
-  display: block;
-  border-radius: inherit;
-  background: linear-gradient(90deg, #acdcff 0%, #e4a5ff 100%);
+.feedback-copy p {
+  margin: 0;
+}
+
+.feedback-copy p + p {
+  margin-top: 4px;
+}
+
+.feedback-oral .feedback-copy {
+  border-color: #ffe45e;
+}
+
+.feedback-salient .feedback-copy {
+  border-color: #f694c1;
+}
+
+.feedback-growth .feedback-copy {
+  border-color: #a7f58a;
+}
+
+.feedback-coherence .feedback-copy {
+  border-color: #d989ff;
 }
 
 .feedback-retry-button {
-  width: 220px;
+  width: 260px;
   position: absolute;
-  top: 1012px;
+  top: 1300px;
+  right: 50px;
+  left: auto;
+  font-size: 22px;
+  transform: none;
+}
+
+.feedback-composer {
+  width: 600px;
+  position: absolute;
+  bottom: 28px;
   left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   transform: translateX(-50%);
+}
+
+.feedback-prompt-field {
+  width: 505px;
+  height: 96px;
+  padding: 24px 30px;
+  border: 1.5px solid #000000;
+  border-radius: 25px;
+  background: #ffffff;
+  color: var(--aura-muted);
+  font-size: 16px;
+  font-weight: 300;
 }
 
 @keyframes typing-pulse {

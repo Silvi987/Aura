@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@400&family=Lexend:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=fase2f">
+    <link rel="stylesheet" href="styles.css?v=fase2g">
   </head>
   <body>
     <main class="app-shell" aria-live="polite">
@@ -508,36 +508,60 @@
 
         <div class="feedback-panel">
           <h1 id="feedback-title">Feedback</h1>
-          <div class="score-block" aria-label="Punteggio finale 75 per cento">
-            <span class="score-value">75%</span>
-            <span class="score-label">Punteggio finale</span>
+
+          <div class="feedback-summary">
+            <div class="score-block" aria-label="Punteggio finale 75 per cento">
+              <span class="score-value">75%</span>
+            </div>
+
+            <ul class="feedback-legend" aria-label="Legenda feedback">
+              <li><span class="legend-dot legend-oral"></span>Esposizione Orale</li>
+              <li><span class="legend-dot legend-salient"></span>Punti Salienti</li>
+              <li><span class="legend-dot legend-growth"></span>Miglioramento</li>
+              <li><span class="legend-dot legend-coherence"></span>Coerenza complessiva</li>
+            </ul>
           </div>
 
           <div class="feedback-list" aria-label="Categorie feedback">
-            <article class="feedback-item">
-              <h2>Chiarezza</h2>
-              <p>Hai mantenuto un filo logico riconoscibile. Rendi più espliciti i passaggi tra una slide e l'altra.</p>
-              <span class="feedback-bar"><span style="width: 80%"></span></span>
+            <article class="feedback-item feedback-oral">
+              <h2>Esposizione Orale</h2>
+              <div class="feedback-copy">
+                <p>Presentazione molto solida, complimenti! Hai dimostrato di conoscere l'argomento in ogni minimo dettaglio. C'è stato qualche momento di esitazione nell'esposizione, ma non ha scalfito la qualità dei contenuti. Una volta acquisita più fluidità nel public speaking, diventerai davvero inarrestabile. Continua così!</p>
+              </div>
             </article>
-            <article class="feedback-item">
-              <h2>Voce</h2>
-              <p>Il tono è stabile. Alcuni punti chiave possono essere scanditi con più pausa.</p>
-              <span class="feedback-bar"><span style="width: 72%"></span></span>
+            <article class="feedback-item feedback-salient">
+              <h2>Punti Salienti</h2>
+              <div class="feedback-copy">
+                <p>• Padronanza della materia: La competenza tecnica è emersa chiaramente. Non hai solo letto le slide, ma hai dimostrato di conoscere i meccanismi profondi dell'argomento.</p>
+                <p>• Qualità dei dati: I numeri, le analisi di mercato e le proiezioni erano solidi e credibili. Questo costruisce fiducia immediata nell'interlocutore.</p>
+                <p>• Struttura del piano: Se il business plan seguiva una logica coerente, significa che la capacità analitica è ottima.</p>
+              </div>
             </article>
-            <article class="feedback-item">
-              <h2>Ritmo</h2>
-              <p>Il tempo complessivo è buono. Accorcia leggermente l'introduzione per lasciare spazio alla conclusione.</p>
-              <span class="feedback-bar"><span style="width: 70%"></span></span>
+            <article class="feedback-item feedback-growth">
+              <h2>Miglioramento</h2>
+              <div class="feedback-copy">
+                <p>• Fluidità espositiva: Le interruzioni frequenti spezzano il "ritmo narrativo", rendendo più faticoso per chi ascolta mantenere l'attenzione.</p>
+                <p>• Gestione del silenzio: Il "perdere il filo" spesso genera momenti di silenzio imbarazzato o l'uso di troppi intercalari, che trasmettono un'immagine di insicurezza.</p>
+                <p>• Rischio di "deragliamento": Perdere il filo può portare a saltare passaggi logici importanti o a correre troppo per recuperare il tempo perduto, trascurando dettagli chiave.</p>
+              </div>
             </article>
-            <article class="feedback-item">
-              <h2>Coinvolgimento</h2>
-              <p>La parte sul target funziona bene. Aggiungi un esempio concreto per rendere il pubblico più partecipe.</p>
-              <span class="feedback-bar"><span style="width: 78%"></span></span>
+            <article class="feedback-item feedback-coherence">
+              <h2>Coerenza complessiva</h2>
+              <div class="feedback-copy">
+                <p>Il problema non è la testa (il contenuto è eccellente), ma il ponte tra la testa e la parola. Hai "troppo roba" in mente e cerchi di dirla tutta insieme, finendo per inciampare.</p>
+                <p>Ricorda che è molto più facile insegnare a qualcuno a parlare in pubblico che insegnargli a creare un business plan solido.</p>
+                <p>La parte difficile l'hai già fatta!</p>
+              </div>
             </article>
           </div>
         </div>
 
-        <button class="feedback-retry-button button button-primary" type="button" data-go-to="start-presentation">Riprova</button>
+        <button class="feedback-retry-button button button-primary" type="button" data-go-to="start-presentation">Riavvia presentazione</button>
+
+        <div class="feedback-composer">
+          <div class="feedback-prompt-field">Inserisci prompt qui ...</div>
+          <button class="send-button" type="button" aria-label="Invia messaggio"></button>
+        </div>
       </section>
     </main>
 
