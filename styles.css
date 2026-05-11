@@ -988,6 +988,10 @@ button {
 }
 
 @media (max-width: 600px) {
+  .screen.draft-screen {
+    --screen-height: 3640px;
+  }
+
   .card {
     border-radius: 52px;
   }
@@ -1193,6 +1197,10 @@ button {
 
   .screen {
     --screen-height: 760px;
+  }
+
+  .screen.draft-screen {
+    --screen-height: 3180px;
   }
 
   .screen-register {
@@ -1465,6 +1473,10 @@ button {
 @media (max-width: 380px) {
   .screen {
     --screen-height: 730px;
+  }
+
+  .screen.draft-screen {
+    --screen-height: 3180px;
   }
 
   .screen-register {
