@@ -586,6 +586,63 @@ button {
   display: block;
 }
 
+.context-menus {
+  position: absolute;
+  top: 93px;
+  right: 0;
+  left: 0;
+  z-index: 8;
+  pointer-events: none;
+}
+
+.context-menus[hidden],
+.context-menu[hidden] {
+  display: none;
+}
+
+.context-menu {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.7);
+  pointer-events: auto;
+}
+
+.context-menu-account {
+  left: 0;
+  width: 153px;
+  height: 244px;
+}
+
+.context-menu-settings {
+  right: 0;
+  width: 199px;
+  height: 295px;
+}
+
+.context-menu-item {
+  width: 100%;
+  padding: 10px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: #000000;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.context-menu-item:hover,
+.context-menu-item:focus-visible {
+  background: rgba(255, 255, 255, 0.62);
+  outline: none;
+}
+
 .home-hero {
   width: 175px;
   position: absolute;
@@ -1811,6 +1868,10 @@ button {
     height: 50px;
   }
 
+  .context-menus {
+    top: 86px;
+  }
+
   .home-hero {
     top: 132px;
     gap: 26px;
@@ -2254,6 +2315,14 @@ button {
   .home-icon {
     width: 48px;
     height: 48px;
+  }
+
+  .context-menus {
+    top: 84px;
+  }
+
+  .context-menu-item {
+    font-size: 22px;
   }
 
   .home-hero {

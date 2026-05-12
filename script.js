@@ -15,6 +15,7 @@ function showScreen(name) {
     devJump.value = name;
   }
 
+  closeMenus();
   syncScreenState(name);
 }
 
@@ -97,6 +98,125 @@ function setPromptPreview(text) {
     target.textContent = text;
   });
 }
+
+const menuLayer = document.querySelector("[data-menu-layer]");
+const menuPanels = Array.from(document.querySelectorAll("[data-menu-panel]"));
+const menuTriggers = Array.from(document.querySelectorAll(".home-icon")).filter((button) =>
+  ["Account", "Impostazioni"].includes(button.getAttribute("aria-label")),
+);
+const menuStatus = document.querySelector("[data-menu-status]");
+
+let activeMenuTrigger = null;
+
+function getMenuNameFromTrigger(trigger) {
+  return trigger.getAttribute("aria-label") === "Account" ? "account" : "settings";
+}
+
+function setMenuTriggerState(menuName, expanded) {
+  menuTriggers.forEach((trigger) => {
+    if (getMenuNameFromTrigger(trigger) === menuName) {
+      trigger.setAttribute("aria-expanded", expanded ? "true" : "false");
+    } else {
+      trigger.setAttribute("aria-expanded", "false");
+    }
+  });
+}
+
+function closeMenus() {
+  if (!menuLayer) {
+    return;
+  }
+
+  menuLayer.hidden = true;
+  menuPanels.forEach((panel) => {
+    panel.hidden = true;
+  });
+  menuTriggers.forEach((trigger) => {
+    trigger.setAttribute("aria-expanded", "false");
+  });
+  activeMenuTrigger = null;
+}
+
+function openMenu(menuName, trigger) {
+  const panel = menuPanels.find((menuPanel) => menuPanel.dataset.menuPanel === menuName);
+
+  if (!menuLayer || !panel) {
+    return;
+  }
+
+  menuLayer.hidden = false;
+  menuPanels.forEach((menuPanel) => {
+    menuPanel.hidden = menuPanel !== panel;
+  });
+  setMenuTriggerState(menuName, true);
+  activeMenuTrigger = trigger;
+}
+
+function toggleMenu(menuName, trigger) {
+  const isOpen =
+    !menuLayer?.hidden &&
+    menuPanels.some((panel) => panel.dataset.menuPanel === menuName && !panel.hidden);
+
+  if (isOpen) {
+    closeMenus();
+    return;
+  }
+
+  openMenu(menuName, trigger);
+}
+
+function handleMenuAction(action, label) {
+  const routes = {
+    home: "home",
+    pricing: "pricing",
+    logout: "login",
+  };
+
+  if (routes[action]) {
+    showScreen(routes[action]);
+    return;
+  }
+
+  if (menuStatus) {
+    menuStatus.textContent = `${label} selezionato`;
+  }
+  closeMenus();
+}
+
+menuTriggers.forEach((trigger) => {
+  const menuName = getMenuNameFromTrigger(trigger);
+
+  trigger.dataset.menuTrigger = menuName;
+  trigger.setAttribute("aria-haspopup", "menu");
+  trigger.setAttribute("aria-expanded", "false");
+
+  trigger.addEventListener("click", (event) => {
+    event.stopPropagation();
+    toggleMenu(menuName, trigger);
+  });
+});
+
+menuLayer?.addEventListener("click", (event) => {
+  event.stopPropagation();
+});
+
+document.querySelectorAll("[data-menu-action]").forEach((item) => {
+  item.addEventListener("click", () => {
+    handleMenuAction(item.dataset.menuAction, item.textContent.trim());
+  });
+});
+
+document.addEventListener("click", () => {
+  closeMenus();
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && activeMenuTrigger) {
+    const triggerToFocus = activeMenuTrigger;
+    closeMenus();
+    triggerToFocus.focus();
+  }
+});
 
 const focusSlides = {
   3: {
